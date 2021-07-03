@@ -4,7 +4,7 @@
 // @name         Rain Classroom PDF Direct Download
 // @name:zh-CN   雨课堂课件PDF下载工具
 // @namespace    https://www.pizyds.com/
-// @version      1.2.0
+// @version      1.2.1
 // @description  Automatic generation of direct download PDF on Rain Classroom
 // @description:zh-CN 在雨课堂页面自动生成PDF版本课件提供下载
 // @author       PillarsZhang
@@ -188,11 +188,15 @@
         console.groupCollapsed("雨课堂课件PDF下载工具：HTML转高清Canvas...");
         var hd_sample_sacle = 4;
         var hd_output_sacle = 2;
-        async function render(index){
+        var c = document.createElement("canvas");
+        var pos = {};
+
+        function oncloneFunction(clonedDocument, index){
             //画布准备，高采样
-            console.log(`雨课堂课件PDF下载工具：${processStatus} - 高采样`);
+            var el_ppts = clonedDocument.getElementsByClassName("pizyds_el_ppt");
             var el_ppt = el_ppts[index];
-            var pos = {
+            el_ppt.style.transform = "translate3d(-50%, -50%, 0px)";
+            pos = {
                 w: el_ppt.getBoundingClientRect(),
                 o: { width: parseInt(el_ppt.style.width), height: parseInt(el_ppt.style.height) },
                 e: { width: null, height: null }
@@ -200,26 +204,30 @@
             pos.e.width = pos.o.width * hd_sample_sacle;
             pos.e.height = pos.o.height * hd_sample_sacle;
             console.log(pos);
-            var c = document.createElement("canvas");
             c.width = pos.e.width;
             c.height = pos.e.height;
             var ctx = c.getContext("2d");
             //ctx.imageSmoothingEnabled = false;
             ctx.scale(pos.e.width / pos.w.width, pos.e.height / pos.w.height);
             ctx.translate(- pos.w.left, - pos.w.top);
+
+            var el_slides = clonedDocument.getElementsByClassName("pizyds_el_slide");
+            el_slides = Array.from(el_slides);
+            for (let i = 0; i < index; i++) removeElement(el_slides[i]);
+            el_slides[index].style.opacity = 1;
+            el_slides[index].style.transform = "translate3d(0px, 0px, 0px)";
+        }
+
+        async function render(index){
+            console.log(`雨课堂课件PDF下载工具：${processStatus} - 高采样`);
+            var el_ppt = el_ppts[index];
             //html2canvas
             console.groupCollapsed(`雨课堂课件PDF下载工具：${processStatus} - html2canvas 日志`);
             await html2canvas(el_ppt, {
                 logging: true,
                 useCORS: true,
                 canvas:c,
-                onclone: clonedDocument => {
-                    var el_slides = clonedDocument.getElementsByClassName("pizyds_el_slide");
-                    el_slides = Array.from(el_slides);
-                    for (let i = 0; i < index; i++) removeElement(el_slides[i]);
-                    el_slides[index].style.opacity = 1;
-                    el_slides[index].style.transform = "translate3d(0px, 0px, 0px)";
-                }
+                onclone: clonedDocument => oncloneFunction(clonedDocument, index)
             });
             console.groupEnd();
             //压缩尺寸，低采样
@@ -234,8 +242,8 @@
             return {unit8: new Uint8Array(png), width: c2.width, height: c2.height};
         }
 
-        var el_ppts = document.getElementsByClassName("pizyds_el_ppt");
         var unit8_ppts = [];
+        var el_ppts = document.getElementsByClassName("pizyds_el_ppt");
         refreshProcessStatus("转换HTML...");
         for (let i = 0; i < el_ppts.length; i++){
             var processStatus = `${i+1}/${el_ppts.length}`;
