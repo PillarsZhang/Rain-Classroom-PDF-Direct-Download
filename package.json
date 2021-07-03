@@ -1,0 +1,23 @@
+{
+  "name": "rain-classroom-pdf-direct-download",
+  "version": "1.2.1",
+  "description": "在雨课堂页面自动生成PDF版本课件提供下载",
+  "main": "Rain Classroom PDF Direct Download.user.js",
+  "scripts": {
+    "test": "http-server ./ -p 8081 -a 127.0.0.1 -c-1 --no-dotfiles --cors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download.git"
+  },
+  "keywords": [],
+  "author": "Pillars Zhang <z@pizyds.com> (https://www.pizyds.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download/issues"
+  },
+  "homepage": "https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download#readme",
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
