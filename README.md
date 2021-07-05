@@ -1,6 +1,3 @@
-# Rain Classroom PDF Direct Download
-**Automatic generation of direct download PDF on Rain Classroom**
-***
 # 雨课堂课件PDF下载工具
 **在雨课堂页面自动生成PDF版本课件提供下载**
 
@@ -23,7 +20,7 @@
 - *1.1.0* 版本逆天地支持插入客观题答案，支持点击`[ 答案 ]`按钮来开启或关闭
 - *1.2.0* 支持发布类型为“课件”（区别于“课堂”）类型的PPT的下载(Beta)
 
-该脚本将前端技术最大化，完全在本地浏览器内处理，所使用的外部库均开源且引用自公共CDN
+该脚本将前端技术最大化，分析当前页面的 DOM ，完全在本地浏览器内处理，不发送任何无关请求，~~所使用的外部库均开源且引用自公共CDN~~，进行 webpack 压缩打包以求高效
 
 - [jsPDF](https://github.com/MrRio/jsPDF) 用于 PDF 的生成
 - [UPNG.js](https://github.com/photopea/UPNG.js/) 用于 PNG 的反交错和压缩
