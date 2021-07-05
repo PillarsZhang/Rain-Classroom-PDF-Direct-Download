@@ -4,9 +4,9 @@
   "description": "在雨课堂页面自动生成PDF版本课件提供下载",
   "private": true,
   "scripts": {
-    "server": "http-server ./dist/ -p 8081 -a 127.0.0.1 -c-1 --no-dotfiles --cors",
-    "build": "webpack --config ./build/webpack.config.mjs",
-    "watch": "webpack --config ./build/webpack.config.mjs --watch"
+    "postinstall": "patch-package",
+    "start": "webpack serve --config ./build/webpack.dev.js",
+    "build": "webpack --config ./build/webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,11 @@
   "homepage": "https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download#readme",
   "devDependencies": {
     "http-server": "^0.12.3",
-    "webpack": "^5.42.0",
-    "webpack-cli": "^4.7.2"
+    "patch-package": "^6.4.7",
+    "webpack": "^5.42.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "html2canvas": "^1.0.0-rc.7",
