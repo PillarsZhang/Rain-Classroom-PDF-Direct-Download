@@ -16,7 +16,7 @@
 (function() {
   'use strict';
   console.log('[本地开发接口] 雨课堂课件PDF下载工具：已载入');
-  var scriptUrl = "http://127.0.0.1:8081/Rain%20Classroom%20PDF%20Direct%20Download.user.js";
+  var scriptUrl = "https://localhost:8081/Rain%20Classroom%20PDF%20Direct%20Download.user.js";
   fetch(scriptUrl)
     .then(response => response.text())
     .then(text => eval(text)) //eslint-disable-line no-eval
