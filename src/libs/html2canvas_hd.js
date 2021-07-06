@@ -10,13 +10,9 @@ function oncloneFunction(clonedDocument, index, { c, pos }){
     var el_ppts = clonedDocument.getElementsByClassName("pizyds_el_ppt");
     var el_ppt = el_ppts[index];
     el_ppt.style.transform = "translate3d(-50%, -50%, 0px)";
-    pos = {
-        w: el_ppt.getBoundingClientRect(),
-        o: { width: parseInt(el_ppt.style.width), height: parseInt(el_ppt.style.height) },
-        e: { width: null, height: null }
-    };
-    pos.e.width = pos.o.width * hd_sample_sacle;
-    pos.e.height = pos.o.height * hd_sample_sacle;
+    pos.w = el_ppt.getBoundingClientRect();
+    pos.o = { width: parseInt(el_ppt.style.width), height: parseInt(el_ppt.style.height) };
+    pos.e = { width: pos.o.width * hd_sample_sacle, height: pos.o.height * hd_sample_sacle };
     console.log(pos);
     c.width = pos.e.width;
     c.height = pos.e.height;
@@ -34,29 +30,30 @@ function oncloneFunction(clonedDocument, index, { c, pos }){
 
 async function render(index, { el_ppts, processStatus }){
     var c = document.createElement("canvas");
-    var pos = {};
+    var pos = { w: null, o: null, e: null };
 
     console.log(`雨课堂课件PDF下载工具：${processStatus} - 高采样`);
     var el_ppt = el_ppts[index];
     //html2canvas
     console.groupCollapsed(`雨课堂课件PDF下载工具：${processStatus} - html2canvas 日志`);
-    await html2canvas(el_ppt, {
+    return html2canvas(el_ppt, {
         logging: true,
         useCORS: true,
         canvas:c,
         onclone: clonedDocument => oncloneFunction(clonedDocument, index, { c, pos })
+    }).then(() => {
+        console.groupEnd();
+        //压缩尺寸，低采样
+        console.log(`雨课堂课件PDF下载工具：${processStatus} - 低采样`);
+        var c2 = document.createElement('canvas');
+        c2.width = pos.o.width * hd_output_sacle;
+        c2.height = pos.o.height * hd_output_sacle;
+        var ctx2 = c2.getContext('2d');
+        ctx2.drawImage(c, 0, 0, c2.width, c2.height);
+        var dta = ctx2.getImageData(0, 0, c2.width, c2.height).data;
+        var png = UPNG.encode([dta.buffer], c2.width, c2.height, 0);
+        return {unit8: new Uint8Array(png), width: c2.width, height: c2.height};
     });
-    console.groupEnd();
-    //压缩尺寸，低采样
-    console.log(`雨课堂课件PDF下载工具：${processStatus} - 低采样`);
-    var c2 = document.createElement('canvas');
-    c2.width = pos.o.width * hd_output_sacle;
-    c2.height = pos.o.height * hd_output_sacle;
-    var ctx2 = c2.getContext('2d');
-    ctx2.drawImage(c, 0, 0, c2.width, c2.height);
-    var dta = ctx2.getImageData(0, 0, c2.width, c2.height).data;
-    var png = UPNG.encode([dta.buffer], c2.width, c2.height, 0);
-    return {unit8: new Uint8Array(png), width: c2.width, height: c2.height};
 }
 
 /**
