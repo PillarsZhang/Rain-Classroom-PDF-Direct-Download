@@ -25,11 +25,11 @@
     "webpack": "^5.42.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "html2canvas": "^0.5.0-beta4",
+    "jspdf": "^2.3.1"
   },
   "dependencies": {
-    "html2canvas": "^0.5.0-beta4",
-    "jspdf": "^2.3.1",
     "upng-js": "^2.1.0"
   }
 }
