@@ -1,0 +1,13 @@
+diff --git a/node_modules/webpack/lib/BannerPlugin.js b/node_modules/webpack/lib/BannerPlugin.js
+index 81b7658..caa26f8 100644
+--- a/node_modules/webpack/lib/BannerPlugin.js
++++ b/node_modules/webpack/lib/BannerPlugin.js
+@@ -82,7 +82,7 @@ class BannerPlugin {
+ 			compilation.hooks.processAssets.tap(
+ 				{
+ 					name: "BannerPlugin",
+-					stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONS
++					stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER
+ 				},
+ 				() => {
+ 					for (const chunk of compilation.chunks) {
