@@ -19,6 +19,7 @@
 - *1.0.6* 版本修改了链接匹配，理论上也能支持其它分区域雨课堂，如荷塘、长江、黄河
 - *1.1.0* 版本逆天地支持插入客观题答案，支持点击`[ 答案 ]`按钮来开启或关闭
 - *1.2.0* 支持发布类型为“课件”（区别于“课堂”）类型的PPT的下载(Beta)
+- *1.2.2* 为了尊重版权与脚本的和平发展，PDF 中将默认加密注入 DRM 信息，详情参考[说明](https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/)
 
 该脚本将前端技术最大化，分析当前页面的 DOM ，完全在本地浏览器内处理，不发送任何无关请求，所使用的外部库均开源且引用自公共 CDN 和 NPM，进行 webpack 压缩打包以求高效
 
@@ -26,6 +27,9 @@
 - [UPNG.js](https://github.com/photopea/UPNG.js/) 用于 PNG 的反交错和压缩
 - [pako](https://github.com/nodeca/pako) high speed zlib port to javascript, works in browser & node.js
 - [html2canvas](https://github.com/niklasvh/html2canvas) 将“课件”类型 PPT 的 HTML 内容转换为位图（很坑）
+- [hybrid-crypto-js](https://github.com/juhoen/hybrid-crypto-js) RSA + AES 混合加密保证 DRM 信息安全
+
+另外请大家注意版权问题，下载的 PDF 自行使用不要随意发布~
 
 原本想搁到B站专栏方便交流反馈的居然没过审理由“涉嫌广告”，ε=(´ο｀*)))唉头大
 
