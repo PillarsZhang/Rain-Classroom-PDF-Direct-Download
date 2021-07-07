@@ -18,3 +18,14 @@ export var url_match = [{
     reg: /https:\/\/.*\.yuketang\.cn\/v2\/web\/studentCards\/.*/,
     type: 2
 }];
+
+//编译信息
+export var build_info = {
+    name: window.PIZYDS_RAIN.NAME,
+    version: window.PIZYDS_RAIN.VERSION,
+    timestamp: window.PIZYDS_RAIN.TIMESTAMP,
+}
+
+export var drm_config = {
+    enabled: true
+};

@@ -5,6 +5,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 var package_json = fs.readFileSync(path.resolve(__dirname, '../../package.json'), 'utf-8');
+var name = JSON.parse(package_json).name;
 var version = JSON.parse(package_json).version;
 
 String.prototype.render = function (context) {
@@ -22,4 +23,10 @@ var BannerPlugin = new webpack.BannerPlugin({
     },
 });
 
-module.exports = { BannerPlugin };
+var DefinePlugin = new webpack.DefinePlugin({
+    'window.PIZYDS_RAIN.NAME': JSON.stringify(name),
+    'window.PIZYDS_RAIN.VERSION': JSON.stringify(version),
+    'window.PIZYDS_RAIN.TIMESTAMP': JSON.stringify(Date.now())
+});
+
+module.exports = { BannerPlugin, DefinePlugin };

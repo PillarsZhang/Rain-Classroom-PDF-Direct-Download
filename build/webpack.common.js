@@ -14,10 +14,14 @@ module.exports = {
         },{
             test: /\.(png|svg|jpg|jpeg|gif)$/i,
             type: 'asset/inline',
-        }],
+        },{
+            test: /\.(txt|pem)$/i,
+            type: 'asset/source'
+        }]
     },
     plugins: [
-        tampermonkey.BannerPlugin
+        tampermonkey.BannerPlugin,
+        tampermonkey.DefinePlugin
     ],
     output: {
         filename: 'Rain Classroom PDF Direct Download.user.js',

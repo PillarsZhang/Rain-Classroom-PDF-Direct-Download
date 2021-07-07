@@ -13,6 +13,7 @@
 // @icon         https://www.yuketang.cn/static/images/favicon.ico
 // @require      https://cdn.jsdelivr.net/npm/jspdf@2.3.1/dist/jspdf.umd.min.js
 // @require      https://cdn.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js
+// @require      https://cdn.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js
 // ==/UserScript==
 
 /* eslint-disable */

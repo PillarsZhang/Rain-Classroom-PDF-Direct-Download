@@ -2,9 +2,13 @@
 
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
+const webpack = require('webpack');
 
 module.exports = merge(common, {
     mode: 'development',
+    plugins: [
+        new webpack.DefinePlugin({ 'window.PIZYDS_RAIN.MODE': JSON.stringify('development') })
+    ],
     devtool: 'inline-source-map',
     devServer: {
         contentBase: './dist',
