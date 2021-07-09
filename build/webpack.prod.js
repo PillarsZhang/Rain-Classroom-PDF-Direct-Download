@@ -12,6 +12,7 @@ module.exports = merge(common, {
     externals: {
         jspdf: 'jspdf',
         html2canvas: 'html2canvas',
-        "hybrid-crypto-js": 'Crypt'
+        "hybrid-crypto-js": 'Crypt',
+        jquery: 'jQuery'
     }
 });

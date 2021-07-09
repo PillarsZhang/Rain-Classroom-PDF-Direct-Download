@@ -1,0 +1,23 @@
+<p>
+    版本：<%= BUILD_VERSION %>&nbsp;&nbsp;|&nbsp;&nbsp;编译时间：<%= BUILD_TIME %><br/>
+    脚本开源维护中，欢迎&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank" style="text-decoration: none;">反馈问题</a>
+</p>
+
+<hr/>
+
+<div class="form-check form-switch form-check-inline">
+    <input class="form-check-input" type="checkbox" id="pizyds_rain_answer_switch" <%= ANS_ENABLED ? "checked" : "" %>>
+    <label class="form-check-label" for="pizyds_rain_answer_switch">课件附答案</label>
+</div>
+
+<div class="form-check form-switch form-check-inline">
+    <input class="form-check-input" type="checkbox" id="pizyds_rain_drm_switch" <%= DRM_ENABLED ? "checked" : "" %>>
+    <label class="form-check-label" for="pizyds_rain_drm_switch">
+        DRM&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/" target="_blank" style="text-decoration: none;"">(&nbsp;?&nbsp;)</a>
+    </label>
+</div>
+
+<hr/>
+
+<label for="pizyds_rain_answer_font_size" class="form-label">答案字号&nbsp;<span id="pizyds_rain_answer_font_size_show" style="display: inline-block; width: 60px;"><%= FONT_SIZE %></span></label>
+<input type="range" class="form-range" min="0" max="50" step="0.5" value="<%= FONT_SIZE %>" id="pizyds_rain_answer_font_size">
