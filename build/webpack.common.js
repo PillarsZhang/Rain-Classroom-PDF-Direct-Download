@@ -1,6 +1,5 @@
 /* eslint-env node */
 
-const path = require('path');
 const tampermonkey = require('./tampermonkey');
 
 module.exports = {
@@ -33,9 +32,10 @@ module.exports = {
         tampermonkey.BannerPlugin,
         tampermonkey.DefinePlugin
     ],
-    output: {
-        filename: 'Rain Classroom PDF Direct Download.user.js',
-        path: path.resolve(__dirname, '../dist'),
-        clean: true,
+    externals: {
+        jspdf: 'jspdf',
+        html2canvas: 'html2canvas',
+        'hybrid-crypto-js/web/hybrid-crypto.js': 'Crypt',
+        jquery: 'jQuery'
     }
 };

@@ -3,6 +3,7 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = merge(common, {
     mode: 'development',
@@ -23,5 +24,10 @@ module.exports = merge(common, {
         allowedHosts: [
             '.yuketang.cn'
         ]
+    },
+    output: {
+        filename: 'Rain Classroom PDF Direct Download.user.temp.js',
+        path: path.resolve(__dirname, '../dist'),
+        clean: true,
     }
 });

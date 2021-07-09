@@ -3,16 +3,16 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = merge(common, {
     mode: 'production',
     plugins: [
         new webpack.DefinePlugin({ 'window.PIZYDS_RAIN.MODE': JSON.stringify('production') })
     ],
-    externals: {
-        jspdf: 'jspdf',
-        html2canvas: 'html2canvas',
-        "hybrid-crypto-js": 'Crypt',
-        jquery: 'jQuery'
+    output: {
+        filename: 'Rain Classroom PDF Direct Download.user.js',
+        path: path.resolve(__dirname, '../dist'),
+        clean: true,
     }
 });

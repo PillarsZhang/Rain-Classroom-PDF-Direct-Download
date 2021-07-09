@@ -26,9 +26,11 @@ export default function(buttonEle){
         offset: [-80, 8]
     })
 
+    popoverIns.show();
+
     $("html").on('click', function (e) {
         var popoverEle = $('.pizyds_rain_conf_popover')[0];
-        if (!$(buttonEle).is(e.target) && $(buttonEle).has(e.target).length == 0 && !$(popoverEle).is(e.target) && $(popoverEle).has(e.target).length == 0) {
+        if (popoverEle && !$(buttonEle).is(e.target) && $(buttonEle).has(e.target).length == 0 && !$(popoverEle).is(e.target) && $(popoverEle).has(e.target).length == 0) {
             $(popoverEle).popover('hide');
         }
     });
