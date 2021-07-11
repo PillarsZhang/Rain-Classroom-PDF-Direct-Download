@@ -6,13 +6,6 @@ export function refreshProcessStatus(processStatus){
     el_download.innerHTML = `<i class="iconfont icon-pizyds-rain-down-xiazai"></i> ${processStatus}`;
 }
 
-//HTML字符串转节点
-export function create_node_from_html(html){
-    let tempNode = document.createElement('div');
-    tempNode.innerHTML = html;
-    return tempNode.firstChild;
-}
-
 //修改自：http://www.jsfun.cn/#textBecomeImg
 //js使用canvas将文字转换成图像数据base64
 export function text2img(text, fontsize, fontcolor){
@@ -49,6 +42,13 @@ export function removeElement(_element){
 //休眠
 export var sleep = (time) => new Promise(reslove => setTimeout(reslove, time));
 
+/**
+ * 调整 SVG 尺寸
+ * @param {string} svg SVG 字符串
+ * @param {number} width 宽度
+ * @param {number} height 高度
+ * @return {void}
+ */
 export function adjustSVGSize(svg, width, height = null){
     var node = $.parseHTML(svg)[0];
     var newHeight = height ? height : width / parseInt($(node).attr("width")) * parseInt($(node).attr("height"));

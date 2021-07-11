@@ -6,6 +6,10 @@ import hybridCrypto from 'hybrid-crypto-js/web/hybrid-crypto.js';
 //小众的库，CDN上对WEB的模块引出方式和NODE有一点不一样
 var crypt = new hybridCrypto({ aesKeySize: 128 });
 
+/**
+ * 生成 DRM 信息
+ * @return {string}
+ */
 export function generateUserID(){
     var drm_json = {
         build_info,
@@ -28,6 +32,10 @@ export function generateUserID(){
     return drm_pizyds_rain_arr.join(":");
 }
 
+/**
+ * 生成 DRM 中的用户信息
+ * @return {string}
+ */
 export function generateUserProfile(){
     var user_profile_raw = JSON.parse(localStorage.getItem("user_profile")) || {};
     var user_profile_name_raw = user_profile_raw.name || user_profile_raw.nickname || '?';

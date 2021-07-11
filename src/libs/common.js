@@ -1,3 +1,4 @@
+//运行环境配置
 export var env_config = {
     _version: "0.0.0",
     log: {

@@ -30,6 +30,13 @@ export default function(img_list, filename, answer_list){
     console.log(`雨课堂课件PDF下载工具：https://www.pizyds.com/rain-classroom-pdf-direct-download/`);
 }
 
+/**
+ * 附加 PPT 页面
+ * @param {number} index
+ * @param {jsPDF} doc jsPDF 对象
+ * @param {Array} answer_list 答案列表
+ * @return {void}
+ */
 function addPPT(index, doc, img_list, answer_list){
     console.log(`雨课堂课件PDF下载工具：第 ${index+1} 页 - PPT`);
     doc.addImage(img_list[index].unit8, 'PNG', 0, 0, img_list[index].width, img_list[index].height, '', 'FAST');
@@ -44,6 +51,12 @@ function addPPT(index, doc, img_list, answer_list){
     }
 }
 
+/**
+ * 注入 DRM 信息
+ * @param {jsPDF} doc jsPDF 对象
+ * @param {Array} size 当前 PPT 页面尺寸
+ * @return {void}
+ */
 function injectXMP(doc, size){
     if (drm_config.enabled){
         console.log(`雨课堂课件PDF下载工具：注入数字版权信息`);

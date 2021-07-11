@@ -8,6 +8,11 @@ import default_svg from 'bootstrap-icons/icons/arrow-return-left.svg'
 import $ from "jquery";
 import { SemVer } from "semver";
 
+/**
+ * 悬浮窗注入
+ * @param {Element} buttonEle 需要注入悬浮窗的按钮
+ * @return {void}
+ */
 export default function(buttonEle){
     var form_templ = ejs_conf_panel;
     var form_html = ejs.render(form_templ, {
@@ -93,6 +98,11 @@ export default function(buttonEle){
     }
 }
 
+/**
+ * Date对象转yyyy-MM-dd
+ * @param {Date} date Date对象
+ * @return {string} yyyy-MM-dd
+ */
 function formatDate(date){
 	var yyyy = (date.getFullYear()).toString().padStart(4, "0");
     var MM = (date.getMonth()+1).toString().padStart(2, "0");
