@@ -37,15 +37,17 @@ export function generateUserID(){
  * @return {string}
  */
 export function generateUserProfile(){
-    var user_profile_raw = JSON.parse(localStorage.getItem("user_profile")) || {};
+    var way_1 = JSON.parse(localStorage.getItem("user_profile"));
+    var way_2 = JSON.parse(localStorage.getItem("vuex")) && JSON.parse(localStorage.getItem("vuex")).userInfo;
+    var user_profile_raw = way_1 || way_2 || {};
     var user_profile_name_raw = user_profile_raw.name || user_profile_raw.nickname || '?';
     var user_profile_name = "";
+    var user_profile_name_choose = randomIntFromInterval(0, user_profile_name_raw.length - 1);
     for (let i = 0; i < user_profile_name_raw.length; i++) {
-        user_profile_name += (i % 2 == 0) ? user_profile_name_raw[i] : '*'
+        user_profile_name += (i == user_profile_name_choose) ? user_profile_name_raw[i] : '*';
     }
     var user_profile = {
         user_id: user_profile_raw.user_id || '?',
-        school: user_profile_raw.school || '?',
         school_number: user_profile_raw.school_number || '?',
         name: user_profile_name
     }
@@ -57,4 +59,8 @@ function hexFingerprint2Base64(hex){
     var uint8 = new Uint8Array(keyHexs.length);
     keyHexs.forEach((value, index) => uint8[index] = parseInt(value, 16));
     return window.btoa(String.fromCharCode.apply(null, uint8));
+}
+
+function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
