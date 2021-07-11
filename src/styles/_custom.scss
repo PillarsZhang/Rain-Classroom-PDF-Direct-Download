@@ -6,3 +6,40 @@
 .pizyds_rain_button_field_type_1 {
     right: 110px !important;
 }
+
+.rotating {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(359deg);
+    }
+}
+
+/* 
+https://stackoverflow.com/a/4407335/16407115
+ */
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#pizyds_rain_answer_font_size_default {
+    cursor: pointer
+}
+
+#pizyds_rain_answer_font_size_show {
+    display: inline-block;
+    width: 20px;
+}
+
+a {
+    text-decoration: none !important;
+}

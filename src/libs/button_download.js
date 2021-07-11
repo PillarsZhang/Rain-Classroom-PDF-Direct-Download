@@ -1,6 +1,6 @@
 import icon_download_svg from 'bootstrap-icons/icons/file-earmark-pdf.svg';
 import icon_config_svg from 'bootstrap-icons/icons/gear-fill.svg';
-import { adjustSVGSize } from './public.js';
+import { addSVGClass, adjustSVGSize } from './public.js';
 import conf_panel from './conf_panel';
 import download_process from './download_process.js';
 import ejs_pizyds_rain_download_button from '../ejs/ejs_pizyds_rain_download_button.ejs';
@@ -46,7 +46,8 @@ var data_on_type = {
         CLASS: "",
         FIELD_CLASS: "",
         DOWNLOAD_BUTTON_ICON: adjustSVGSize(icon_download_svg, 14),
-        CONFIG_BUTTON_ICON: adjustSVGSize(icon_config_svg, 14)
+        CONFIG_BUTTON_ICON: adjustSVGSize(icon_config_svg, 14),
+        RUNNING_BUTTON_ICON: addSVGClass(adjustSVGSize(icon_config_svg, 14), 'rotating')
     },
     1: {
         CLASS: "print",

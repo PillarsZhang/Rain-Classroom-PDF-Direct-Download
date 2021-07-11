@@ -1,7 +1,7 @@
 <div id="pizyds_rain_header_field">
     <p>
         版本：<%= BUILD_VERSION %>&nbsp;&nbsp;|&nbsp;&nbsp;编译时间：<%= BUILD_TIME %><br/>
-        脚本开源维护中，欢迎&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank" style="text-decoration: none;">反馈问题</a>
+        脚本开源维护中，欢迎&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank">反馈问题</a>
     </p>
 </div>
 
@@ -16,7 +16,7 @@
     <div class="form-check form-switch form-check-inline">
         <input class="form-check-input" type="checkbox" id="pizyds_rain_drm_switch" <%= DRM_ENABLED ? "checked" : "" %>>
         <label class="form-check-label" for="pizyds_rain_drm_switch">
-            DRM&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/" target="_blank" style="text-decoration: none;"">(&nbsp;?&nbsp;)</a>
+            DRM&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/" target="_blank">(&nbsp;?&nbsp;)</a>
         </label>
     </div>
 </div>
@@ -26,7 +26,7 @@
 <div id="pizyds_rain_answer_font_size_field" class="<%= ANS_ENABLED ? "" : "disabledField" %>">
     <label for="pizyds_rain_answer_font_size_range" class="form-label">
         答案字号&nbsp;
-        <span id="pizyds_rain_answer_font_size_show" style="display: inline-block; width: 20px;"><%= FONT_SIZE %></span>
+        <span id="pizyds_rain_answer_font_size_show"><%= FONT_SIZE %></span>
     </label>
     <span id="pizyds_rain_answer_font_size_default">
         <%- DEFAULT_SVG %>

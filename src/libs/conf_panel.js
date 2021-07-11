@@ -21,7 +21,7 @@ export default function(buttonEle){
         ANS_ENABLED: ans_config.enabled,
         DRM_ENABLED: drm_config.enabled,
         FONT_SIZE: ans_config.fontSize,
-        DEFAULT_SVG: adjustSVGSize(default_svg, 14)
+        DEFAULT_SVG: adjustSVGSize(default_svg, 12)
     });
     var container = $(".pizyds_rain")[0];
     $(container).off();

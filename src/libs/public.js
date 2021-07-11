@@ -2,8 +2,14 @@ import $ from "jquery";
 
 //按钮文本刷新
 export function refreshProcessStatus(processStatus){
-    var el_download = document.getElementById("pizyds_rain_download_button");
-    el_download.innerHTML = `<i class="iconfont icon-pizyds-rain-down-xiazai"></i> ${processStatus}`;
+    if (!processStatus){
+        $("#pizyds_rain_running").attr("hidden", "");
+        $("#pizyds_rain_waiting").removeAttr("hidden");
+    } else{
+        $("#pizyds_rain_running_text").html(processStatus);
+        $("#pizyds_rain_waiting").attr("hidden", "");
+        $("#pizyds_rain_running").removeAttr("hidden");
+    }
 }
 
 //修改自：http://www.jsfun.cn/#textBecomeImg
@@ -55,5 +61,17 @@ export function adjustSVGSize(svg, width, height = null){
     var newWidth = width ? width : height / parseInt($(node).attr("height")) * parseInt($(node).attr("width"));
     $(node).attr("height", newHeight);
     $(node).attr("width", newWidth);
+    return node.outerHTML;
+}
+
+/**
+ * 给 SVG 添加 css
+ * @param {string} svg SVG 字符串
+ * @param {string} css css
+ * @return {void}
+ */
+export function addSVGClass(svg, css){
+    var node = $.parseHTML(svg)[0];
+    $(node).addClass(css);
     return node.outerHTML;
 }

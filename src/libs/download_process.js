@@ -36,7 +36,7 @@ export default function (el_dialog, url_type = 1){
                     var filename = ppt_name + ".pdf";
                     var answer_list = ans_config.enabled ? get_answers(url_slides): [];
                     pdf_process(img_list, filename, answer_list);
-                    refreshProcessStatus("下载课件");
+                    refreshProcessStatus(false);
                 })
             } else{
                 alert("雨课堂课件PDF下载工具：没有提取到图片");
@@ -56,7 +56,7 @@ export default function (el_dialog, url_type = 1){
                     var filename = ppt_name + ".pdf";
                     var answer_list = [];
                     pdf_process(img_list, filename, answer_list);
-                    refreshProcessStatus("下载课件(Beta)");
+                    refreshProcessStatus(false);
                 })
             } else{
                 alert("雨课堂课件PDF下载工具：没有提取到图片");
