@@ -26,7 +26,7 @@ module.exports = merge(common, {
         ]
     },
     output: {
-        filename: 'Rain Classroom PDF Direct Download.user.temp.js',
+        filename: 'rain-classroom-pdf-direct-download.user.temp.js',
         path: path.resolve(__dirname, '../dist'),
         clean: true,
     }

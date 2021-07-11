@@ -1,6 +1,6 @@
 /* eslint-env node */
 
-const tampermonkey = require('./tampermonkey');
+const tampermonkey = require('./tampermonkey/plugin');
 
 module.exports = {
     entry: {
@@ -21,10 +21,10 @@ module.exports = {
                 'sass-loader'
             ],
         },{
-            test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            test: /\.(png|jpg|jpeg|gif)$/i,
             type: 'asset/inline',
         },{
-            test: /\.(txt|pem|ejs)$/i,
+            test: /\.(txt|pem|ejs|svg)$/i,
             type: 'asset/source'
         }]
     },

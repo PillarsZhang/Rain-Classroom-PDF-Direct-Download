@@ -3,7 +3,8 @@ import ejs from "ejs/ejs.js"
 import Popover from 'bootstrap/js/dist/popover';
 import { build_info, ans_config, drm_config } from "./common";
 import '../styles/css_pizyds_rain.scss';
-import $ from "jquery";    console.log(window);
+import default_svg from 'bootstrap-icons/icons/arrow-return-left.svg'
+import $ from "jquery";
 
 export default function(buttonEle){
     var form_templ = ejs_conf_panel;
@@ -12,11 +13,15 @@ export default function(buttonEle){
         BUILD_TIME: formatDate(new Date(build_info.timestamp)),
         ANS_ENABLED: ans_config.enabled,
         DRM_ENABLED: drm_config.enabled,
-        FONT_SIZE: ans_config.fontSize
+        FONT_SIZE: ans_config.fontSize,
+        DEFAULT_SVG: default_svg
     });
+    var container = $(".pizyds_rain")[0];
+    $(container).off();
+    // eslint-disable-next-line no-unused-vars
     var popoverIns = new Popover(buttonEle, {
         title: "雨课堂课件PDF下载工具",
-        container: $(".basePPTDialog")[0],
+        container,
         content: form_html,
         html: true,
         sanitize: false,
@@ -26,33 +31,54 @@ export default function(buttonEle){
         offset: [-80, 8]
     })
 
-    popoverIns.show();
-
+    $("html").off();
     $("html").on('click', function (e) {
         var popoverEle = $('.pizyds_rain_conf_popover')[0];
-        if (popoverEle && !$(buttonEle).is(e.target) && $(buttonEle).has(e.target).length == 0 && !$(popoverEle).is(e.target) && $(popoverEle).has(e.target).length == 0) {
+        if (
+          popoverEle && 
+          !$(buttonEle).is(e.target) && 
+          $(buttonEle).has(e.target).length == 0 && 
+          !$(popoverEle).is(e.target) && 
+          $(popoverEle).has(e.target).length == 0
+        ) {
             $(popoverEle).popover('hide');
         }
     });
 
-    $("body").on('input', "#pizyds_rain_answer_font_size", function(){
+    $(container).on('input change', "#pizyds_rain_answer_font_size_range", function(){
         $("#pizyds_rain_answer_font_size_show").html(this.value);
     })
 
-    $("body").on('change', "#pizyds_rain_answer_switch", function(){
-        if(this.checked){
-            console.log("answer_on");
+    $(container).on('change', "#pizyds_rain_answer_font_size_range", function(){
+        ans_config.fontSize = this.value;
+    })
+
+    $(container).on('change', "#pizyds_rain_answer_switch", function(){
+        ans_config.enabled = this.checked;
+        if (!ans_config.enabled) {
+            $("#pizyds_rain_answer_font_size_field")
+              .addClass("disabledField")
+              .find('input')
+              .attr('disabled', '');
         } else{
-            console.log("answer_off");
+            $("#pizyds_rain_answer_font_size_field")
+              .removeClass("disabledField")
+              .find('input')
+              .removeAttr('disabled');
         }
     })
-    $("body").on('change', "#pizyds_rain_drm_switch", function(){
-        if(this.checked){
-            console.log("drm_on");
-        } else{
-            console.log("drm_off");
-        }
+
+    $(container).on('click', "#pizyds_rain_answer_font_size_default", function(){
+        $("#pizyds_rain_answer_font_size_range")
+          .prop("value", ans_config.$fontSize)
+          .trigger("change");
     })
+
+    $(container).on('change', "#pizyds_rain_drm_switch", function(){
+        drm_config.enabled = this.checked;
+    })
+
+    //$(buttonEle).trigger("click");
 }
 
 function formatDate(date){

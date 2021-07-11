@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         {{prefix}}Rain Classroom PDF Direct Download
-// @name:zh-CN   {{prefix}}雨课堂课件PDF下载工具
+// @name         <%= prefix %>Rain Classroom PDF Direct Download
+// @name:zh-CN   <%= prefix %>雨课堂课件PDF下载工具
 // @namespace    https://www.pizyds.com/
-// @version      {{version}}
+// @version      <%= version %>
 // @description  Automatic generation of direct download PDF on Rain Classroom
 // @description:zh-CN 在雨课堂页面自动生成PDF版本课件提供下载
 // @author       PillarsZhang
@@ -14,8 +14,9 @@
 // @require      https://cdn.jsdelivr.net/npm/jspdf@2.3.1/dist/jspdf.umd.min.js
 // @require      https://cdn.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js
 // @require      https://cdn.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js
-// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js{{require}}
-// @grant        unsafeWindow
+// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js<%= require %>
+// @grant        GM_getValue
+// @grant        GM_setValue
 // ==/UserScript==
 
 /* eslint-disable */

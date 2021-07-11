@@ -1,5 +1,5 @@
 import { url_match } from "./libs/common.js";
-import add_button_download from "./libs/add_button_download.js"
+import button_download from "./libs/button_download.js"
 
 if (!checkFlagMeta()){
     addFlagMeta();
@@ -7,7 +7,7 @@ if (!checkFlagMeta()){
     //实时查找PPT窗口
     setInterval(()=>{
         var url_type, el_dialog;
-        (url_type = check_url()) && (el_dialog = find_basePPTDialog()) && add_button_download(el_dialog, url_type);
+        (url_type = check_url()) && (el_dialog = find_basePPTDialog()) && button_download(el_dialog, url_type);
     }, 200);
 }
 

@@ -11,7 +11,6 @@
 // @license      MIT
 // @match        https://*.yuketang.cn/*
 // @icon         https://www.yuketang.cn/static/images/favicon.ico
-// @grant        unsafeWindow
 // ==/UserScript==
 
 (function() {

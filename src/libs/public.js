@@ -1,23 +1,8 @@
-import { ans_config } from "./common.js";
-
-/**
- * 对添加客观题答案到PPT的开关
- * @return {void}
- */
-export function switch_answer(){
-    var el_switchAnswer = document.getElementsByClassName("pizyds_switchAnswer")[0];
-    if (ans_config.enabled){
-        el_switchAnswer.innerHTML = "<del>[ 答案 ]</del>";
-        ans_config.enabled = false;
-    } else{
-        el_switchAnswer.innerHTML = "[ 答案 ]";
-        ans_config.enabled = true;
-    }
-}
+import $ from "jquery";
 
 //按钮文本刷新
 export function refreshProcessStatus(processStatus){
-    var el_download = document.getElementsByClassName("pizyds_download")[0];
+    var el_download = document.getElementById("pizyds_rain_download_button");
     el_download.innerHTML = `<i class="iconfont icon-pizyds-rain-down-xiazai"></i> ${processStatus}`;
 }
 
@@ -63,3 +48,12 @@ export function removeElement(_element){
 
 //休眠
 export var sleep = (time) => new Promise(reslove => setTimeout(reslove, time));
+
+export function adjustSVGSize(svg, width, height = null){
+    var node = $.parseHTML(svg)[0];
+    var newHeight = height ? height : width / parseInt($(node).attr("width")) * parseInt($(node).attr("height"));
+    var newWidth = width ? width : height / parseInt($(node).attr("height")) * parseInt($(node).attr("width"));
+    $(node).attr("height", newHeight);
+    $(node).attr("width", newWidth);
+    return node.outerHTML;
+}

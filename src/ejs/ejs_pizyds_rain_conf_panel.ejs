@@ -1,23 +1,35 @@
-<p>
-    版本：<%= BUILD_VERSION %>&nbsp;&nbsp;|&nbsp;&nbsp;编译时间：<%= BUILD_TIME %><br/>
-    脚本开源维护中，欢迎&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank" style="text-decoration: none;">反馈问题</a>
-</p>
+<div id="pizyds_rain_header_field">
+    <p>
+        版本：<%= BUILD_VERSION %>&nbsp;&nbsp;|&nbsp;&nbsp;编译时间：<%= BUILD_TIME %><br/>
+        脚本开源维护中，欢迎&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank" style="text-decoration: none;">反馈问题</a>
+    </p>
+</div>
 
 <hr/>
 
-<div class="form-check form-switch form-check-inline">
-    <input class="form-check-input" type="checkbox" id="pizyds_rain_answer_switch" <%= ANS_ENABLED ? "checked" : "" %>>
-    <label class="form-check-label" for="pizyds_rain_answer_switch">课件附答案</label>
+<div id="pizyds_rain_switch_field">
+    <div class="form-check form-switch form-check-inline">
+        <input class="form-check-input" type="checkbox" id="pizyds_rain_answer_switch" <%= ANS_ENABLED ? "checked" : "" %>>
+        <label class="form-check-label" for="pizyds_rain_answer_switch">课件附答案</label>
+    </div>
+
+    <div class="form-check form-switch form-check-inline">
+        <input class="form-check-input" type="checkbox" id="pizyds_rain_drm_switch" <%= DRM_ENABLED ? "checked" : "" %>>
+        <label class="form-check-label" for="pizyds_rain_drm_switch">
+            DRM&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/" target="_blank" style="text-decoration: none;"">(&nbsp;?&nbsp;)</a>
+        </label>
+    </div>
 </div>
 
-<div class="form-check form-switch form-check-inline">
-    <input class="form-check-input" type="checkbox" id="pizyds_rain_drm_switch" <%= DRM_ENABLED ? "checked" : "" %>>
-    <label class="form-check-label" for="pizyds_rain_drm_switch">
-        DRM&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/" target="_blank" style="text-decoration: none;"">(&nbsp;?&nbsp;)</a>
+<hr/>
+
+<div id="pizyds_rain_answer_font_size_field" class="<%= ANS_ENABLED ? "" : "disabledField" %>">
+    <label for="pizyds_rain_answer_font_size_range" class="form-label">
+        答案字号&nbsp;
+        <span id="pizyds_rain_answer_font_size_show" style="display: inline-block; width: 20px;"><%= FONT_SIZE %></span>
     </label>
+    <span id="pizyds_rain_answer_font_size_default">
+        <img src="<%= DEFAULT_SVG %>" width="14" height="14" style="vertical-align: sub">
+    </span>
+    <input id="pizyds_rain_answer_font_size_range" type="range" class="form-range" min="0" max="80" step="1" value="<%= FONT_SIZE %>" <%= ANS_ENABLED ? "" : "disabled" %>>
 </div>
-
-<hr/>
-
-<label for="pizyds_rain_answer_font_size" class="form-label">答案字号&nbsp;<span id="pizyds_rain_answer_font_size_show" style="display: inline-block; width: 60px;"><%= FONT_SIZE %></span></label>
-<input type="range" class="form-range" min="0" max="50" step="1" value="<%= FONT_SIZE %>" id="pizyds_rain_answer_font_size">
