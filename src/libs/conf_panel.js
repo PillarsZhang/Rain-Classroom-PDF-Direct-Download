@@ -1,10 +1,12 @@
 import ejs_conf_panel from "../ejs/ejs_pizyds_rain_conf_panel.ejs";
 import ejs from "ejs/ejs.js"
 import Popover from 'bootstrap/js/dist/popover';
-import { build_info, ans_config, drm_config } from "./common";
+import { build_info, ans_config, drm_config, env_config } from "./common";
+import { adjustSVGSize } from "./public";
 import '../styles/css_pizyds_rain.scss';
 import default_svg from 'bootstrap-icons/icons/arrow-return-left.svg'
 import $ from "jquery";
+import { SemVer } from "semver";
 
 export default function(buttonEle){
     var form_templ = ejs_conf_panel;
@@ -14,7 +16,7 @@ export default function(buttonEle){
         ANS_ENABLED: ans_config.enabled,
         DRM_ENABLED: drm_config.enabled,
         FONT_SIZE: ans_config.fontSize,
-        DEFAULT_SVG: default_svg
+        DEFAULT_SVG: adjustSVGSize(default_svg, 14)
     });
     var container = $(".pizyds_rain")[0];
     $(container).off();
@@ -78,7 +80,17 @@ export default function(buttonEle){
         drm_config.enabled = this.checked;
     })
 
-    //$(buttonEle).trigger("click");
+    if (SemVer.neq(env_config.version, build_info.version)){
+        if (SemVer.eq(env_config.version, "0.0.0")){
+            console.log("雨课堂课件PDF下载工具：插件 - 新安装");
+        } else if (SemVer.gt(env_config.version, build_info.version)){
+            console.log("雨课堂课件PDF下载工具：插件 - 已降级");
+        } else if (SemVer.lt(env_config.version, build_info.version)){
+            console.log("雨课堂课件PDF下载工具：插件 - 已升级");
+        }
+        env_config.version = build_info.version;
+        $(buttonEle).trigger("click");
+    }
 }
 
 function formatDate(date){

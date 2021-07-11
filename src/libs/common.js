@@ -1,5 +1,20 @@
+export var env_config = {
+    _version: "0.0.0",
+    log: {
+        config: false
+    }
+}
+autoGMValue(env_config, "env_config");
+
+//编译信息
+export var build_info = {
+    name: window.PIZYDS_RAIN.NAME,
+    version: window.PIZYDS_RAIN.VERSION,
+    timestamp: window.PIZYDS_RAIN.TIMESTAMP,
+}
+
 //对自动添加客观题答案到PPT页面的配置
-var ans_config = {
+export var ans_config = {
     _enabled: true,
     _fontSize: 40,
     right: 30,
@@ -10,10 +25,9 @@ var ans_config = {
         fontSize: "答案字号"
     }
 };
-
 autoGMValue(ans_config, "ans_config");
 
-var drm_config = {
+export var drm_config = {
     _enabled: true,
     text: {
         enabled: "DRM"
@@ -22,7 +36,7 @@ var drm_config = {
 autoGMValue(drm_config, "drm_config");
 
 //网址分类规则
-var url_match = [{
+export var url_match = [{
     reg: /https:\/\/.*\.yuketang\.cn\/v2\/web\/student\/.*/,
     type: 1
 },{
@@ -33,14 +47,7 @@ var url_match = [{
     type: 2
 }];
 
-//编译信息
-var build_info = {
-    name: window.PIZYDS_RAIN.NAME,
-    version: window.PIZYDS_RAIN.VERSION,
-    timestamp: window.PIZYDS_RAIN.TIMESTAMP,
-}
-
-export { ans_config, url_match, build_info, drm_config };
+env_config.log.config = true;
 
 function autoGMValue(obj, objName){
     for (let keyTemp in obj){
@@ -54,7 +61,7 @@ function autoGMValue(obj, objName){
                 set: function(val) {
                     this[_key] = val;
                     GM_setValue(GMValueName, this[_key]);
-                    console.log(`雨课堂课件PDF下载工具：${this.text&&this.text[key]||GMValueName} - ${this[_key]}`);
+                    env_config.log.config && console.log(`雨课堂课件PDF下载工具：${this.text&&this.text[key]||GMValueName} - ${this[_key]}`);
                 },
                 get: function() {
                     this[_key] = GM_getValue(GMValueName, this[_key]);
@@ -67,5 +74,5 @@ function autoGMValue(obj, objName){
 }
 
 function refreshGMValue(obj, key){
-    return obj[key];
+    obj[key] = obj[key].valueOf();
 }

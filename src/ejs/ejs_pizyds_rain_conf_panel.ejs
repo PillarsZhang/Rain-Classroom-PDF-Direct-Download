@@ -29,7 +29,7 @@
         <span id="pizyds_rain_answer_font_size_show" style="display: inline-block; width: 20px;"><%= FONT_SIZE %></span>
     </label>
     <span id="pizyds_rain_answer_font_size_default">
-        <img src="<%= DEFAULT_SVG %>" width="14" height="14" style="vertical-align: sub">
+        <%- DEFAULT_SVG %>
     </span>
     <input id="pizyds_rain_answer_font_size_range" type="range" class="form-range" min="0" max="80" step="1" value="<%= FONT_SIZE %>" <%= ANS_ENABLED ? "" : "disabled" %>>
 </div>
