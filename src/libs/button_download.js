@@ -23,19 +23,22 @@ export default function button_download(el_dialog, url_type = 1){
         console.log(`雨课堂课件PDF下载工具：layout header 查找失败`);
         return false;
     }
-    if (el_header && $(el_header).find("#pizyds_rain_button_field").length == 0){
-        $(el_dialog).addClass("pizyds_rain"); //自定义CSS启用的条件
-        var template = ejs.compile(ejs_pizyds_rain_download_button);
-        var data = Object.assign(data_on_type["base"], data_on_type[url_type]);
-        var html = template(data);
-        $(el_header).find(`.${data.CLASS}`).first().before(html);
-        $("#pizyds_rain_download_button").off();
-        $("#pizyds_rain_download_button").on("click", () => download_process(el_dialog, url_type));
-        conf_panel($("#pizyds_rain_config_button"));
-        console.log(`雨课堂课件PDF下载工具：按钮注入成功 - type ${url_type}`);
-    } else{
-        return false;
+    if ($(el_header).find("#pizyds_rain_button_field").length == 0){
+        try {
+            $(el_dialog).addClass("pizyds_rain"); //自定义CSS启用的条件
+            var template = ejs.compile(ejs_pizyds_rain_download_button);
+            var data = Object.assign(data_on_type["base"], data_on_type[url_type]);
+            var html = template(data);
+            $(el_header).find(`.${data.CLASS}`).first().before(html);
+            $("#pizyds_rain_download_button").off();
+            $("#pizyds_rain_download_button").on("click", () => download_process(el_dialog, url_type));
+            conf_panel($("#pizyds_rain_config_button"));
+            console.log(`雨课堂课件PDF下载工具：按钮注入成功 - type ${url_type}`);
+        } catch (err) {
+            return false;
+        }
     }
+    return true;
 }
 
 var data_on_type = {
