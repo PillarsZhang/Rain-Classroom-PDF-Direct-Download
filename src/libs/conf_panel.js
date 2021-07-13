@@ -1,10 +1,14 @@
 import ejs_conf_panel from "../ejs/ejs_pizyds_rain_conf_panel.ejs";
+import ejs_conf_title from "../ejs/ejs_pizyds_rain_conf_title.ejs";
 import ejs from "ejs/ejs.js"
 import Popover from 'bootstrap/js/dist/popover';
 import { build_info, ans_config, drm_config, env_config } from "./common";
 import { adjustSVGSize } from "./public";
 import '../styles/css_pizyds_rain.scss';
 import default_svg from 'bootstrap-icons/icons/arrow-return-left.svg'
+import github_svg from 'bootstrap-icons/icons/github.svg'
+import house_svg from 'bootstrap-icons/icons/house.svg'
+import code_svg from 'bootstrap-icons/icons/code-slash.svg'
 import $ from "jquery";
 import { SemVer } from "semver";
 
@@ -21,13 +25,16 @@ export default function(buttonEle){
         ANS_ENABLED: ans_config.enabled,
         DRM_ENABLED: drm_config.enabled,
         FONT_SIZE: ans_config.fontSize,
-        DEFAULT_SVG: adjustSVGSize(default_svg, 12)
+        DEFAULT_SVG: adjustSVGSize(default_svg, 12),
+        HOUSE_SVG: adjustSVGSize(house_svg, 12),
+        GITHUB_SVG: adjustSVGSize(github_svg, 12),
+        CODE_SVG: adjustSVGSize(code_svg, 12)
     });
     var container = $(".pizyds_rain")[0];
     $(container).off();
     // eslint-disable-next-line no-unused-vars
     var popoverIns = new Popover(buttonEle, {
-        title: "雨课堂课件PDF下载工具",
+        title: ejs.render(ejs_conf_title),
         container,
         content: form_html,
         html: true,

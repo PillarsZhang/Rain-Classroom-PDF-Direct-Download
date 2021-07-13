@@ -43,6 +43,21 @@ https://stackoverflow.com/a/4407335/16407115
     width: 20px;
 }
 
-a {
+.no-text-decoration {
     text-decoration: none !important;
+}
+
+.inherit-color {
+    color: inherit !important;
+}
+
+#footer-span {
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    opacity: 0.5;
+    a {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
 }
