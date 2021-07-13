@@ -1,4 +1,6 @@
 import $ from "jquery";
+import { build_info, env_config } from "./common";
+import { SemVer } from "semver";
 
 //按钮文本刷新
 export function refreshProcessStatus(processStatus){
@@ -74,4 +76,34 @@ export function addSVGClass(svg, css){
     var node = $.parseHTML(svg)[0];
     $(node).addClass(css);
     return node.outerHTML;
+}
+
+export function judgeVersionUpdate() {
+    if (SemVer.neq(env_config.version, build_info.version)){
+        if (SemVer.eq(env_config.version, "0.0.0")){
+            return "new";
+        } else if (SemVer.gt(env_config.version, build_info.version)){
+            return "down";
+        } else if (SemVer.lt(env_config.version, build_info.version)){
+            return "up";
+        }
+    } else {
+        return false;
+    } 
+}
+
+
+export var textVersionUpdate = {
+    "new": `感谢！新安装：${env_config.version} -> ${build_info.version}`,
+    "up": `感谢！已升级：${env_config.version} -> ${build_info.version}`,
+    "down": `啊？已降级：${env_config.version} -> ${build_info.version}`
+}
+
+export function clearVersionUpdate () {
+    if (judgeVersionUpdate()){
+        env_config.version = build_info.version;
+        return true;
+    } else {
+        return false;
+    }
 }

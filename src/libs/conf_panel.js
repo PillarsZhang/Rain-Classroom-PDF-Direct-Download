@@ -2,15 +2,14 @@ import ejs_conf_panel from "../ejs/ejs_pizyds_rain_conf_panel.ejs";
 import ejs_conf_title from "../ejs/ejs_pizyds_rain_conf_title.ejs";
 import ejs from "ejs/ejs.js"
 import Popover from 'bootstrap/js/dist/popover';
-import { build_info, ans_config, drm_config, env_config } from "./common";
-import { adjustSVGSize } from "./public";
+import { build_info, ans_config, drm_config } from "./common";
+import { adjustSVGSize, judgeVersionUpdate, textVersionUpdate, clearVersionUpdate } from "./public";
 import '../styles/css_pizyds_rain.scss';
 import default_svg from 'bootstrap-icons/icons/arrow-return-left.svg'
 import github_svg from 'bootstrap-icons/icons/github.svg'
 import house_svg from 'bootstrap-icons/icons/house.svg'
 import code_svg from 'bootstrap-icons/icons/code-slash.svg'
 import $ from "jquery";
-import { SemVer } from "semver";
 
 /**
  * 悬浮窗注入
@@ -25,6 +24,7 @@ export default function(buttonEle){
         ANS_ENABLED: ans_config.enabled,
         DRM_ENABLED: drm_config.enabled,
         FONT_SIZE: ans_config.fontSize,
+        HEADER_MESSAGE: judgeVersionUpdate() && textVersionUpdate[judgeVersionUpdate()] || "",
         DEFAULT_SVG: adjustSVGSize(default_svg, 12),
         HOUSE_SVG: adjustSVGSize(house_svg, 12),
         GITHUB_SVG: adjustSVGSize(github_svg, 12),
@@ -92,17 +92,8 @@ export default function(buttonEle){
         drm_config.enabled = this.checked;
     })
 
-    if (SemVer.neq(env_config.version, build_info.version)){
-        if (SemVer.eq(env_config.version, "0.0.0")){
-            console.log("雨课堂课件PDF下载工具：插件 - 新安装");
-        } else if (SemVer.gt(env_config.version, build_info.version)){
-            console.log("雨课堂课件PDF下载工具：插件 - 已降级");
-        } else if (SemVer.lt(env_config.version, build_info.version)){
-            console.log("雨课堂课件PDF下载工具：插件 - 已升级");
-        }
-        env_config.version = build_info.version;
-        $(buttonEle).trigger("click");
-    }
+    clearVersionUpdate() && $(buttonEle).trigger("click");
+
 }
 
 /**

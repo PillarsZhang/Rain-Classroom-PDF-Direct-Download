@@ -51,13 +51,20 @@ https://stackoverflow.com/a/4407335/16407115
     color: inherit !important;
 }
 
-#footer-span {
+.footer-span {
     text-align: center;
     display: block;
-    padding-top: 10px;
     opacity: 0.5;
     a {
         text-decoration: none !important;
         color: inherit !important;
     }
+}
+
+#pizyds_rain_footer_field {
+    padding-top: 10px;
+}
+
+#pizyds_rain_header_message {
+    color: red;
 }

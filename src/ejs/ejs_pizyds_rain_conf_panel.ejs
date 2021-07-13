@@ -3,6 +3,9 @@
         版本：<%= BUILD_VERSION %>&nbsp;&nbsp;|&nbsp;&nbsp;编译时间：<%= BUILD_TIME %><br/>
         脚本开源维护中，欢迎&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank" class="no-text-decoration">反馈问题</a><br/>
     </p>
+    <p id="pizyds_rain_header_message" class="text-emphasis">
+        <%= HEADER_MESSAGE %>
+    </p>
 </div>
 
 <hr/>
@@ -34,18 +37,20 @@
     <input id="pizyds_rain_answer_font_size_range" type="range" class="form-range" min="0" max="80" step="1" value="<%= FONT_SIZE %>" <%= ANS_ENABLED ? "" : "disabled" %>>
 </div>
 
-<span id="footer-span">
-    - &nbsp; 
-    <a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank" title="主页">
-        <%- HOUSE_SVG %>
-    </a>
-    &nbsp; | &nbsp; 
-    <a href="https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download" target="_blank" title="Github">
-        <%- GITHUB_SVG %>
-    </a>
-    &nbsp; | &nbsp; 
-    <a href="https://greasyfork.org/scripts/424050" target="_blank" title="Greasy Fork">
-        <%- CODE_SVG %>
-    </a>
-    &nbsp; -
-</span>
+<div id="pizyds_rain_footer_field">
+    <span class="footer-span">
+        - &nbsp; 
+        <a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank" title="主页">
+            <%- HOUSE_SVG %>
+        </a>
+        &nbsp; | &nbsp; 
+        <a href="https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download" target="_blank" title="Github">
+            <%- GITHUB_SVG %>
+        </a>
+        &nbsp; | &nbsp; 
+        <a href="https://greasyfork.org/scripts/424050" target="_blank" title="Greasy Fork">
+            <%- CODE_SVG %>
+        </a>
+        &nbsp; -
+    </span>
+</div>
