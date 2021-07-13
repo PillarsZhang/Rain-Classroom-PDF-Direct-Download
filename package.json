@@ -1,6 +1,6 @@
 {
   "name": "rain-classroom-pdf-direct-download",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "在雨课堂页面自动生成PDF版本课件提供下载",
   "private": true,
   "scripts": {
