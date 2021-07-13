@@ -27,7 +27,6 @@ module.exports = merge(common, {
     },
     output: {
         filename: 'rain-classroom-pdf-direct-download.user.temp.js',
-        path: path.resolve(__dirname, '../dist'),
-        clean: true,
+        path: path.resolve(__dirname, '../dist')
     }
 });

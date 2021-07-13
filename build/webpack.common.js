@@ -12,12 +12,7 @@ module.exports = {
             use: [
                 'style-loader', 
                 'css-loader', 
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        postcssOptions: { plugins: () =>[ require('autoprefixer') ] }
-                    }
-                },
+                'postcss-loader',
                 'sass-loader'
             ],
         },{
