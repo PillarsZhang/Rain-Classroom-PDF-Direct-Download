@@ -1,0 +1,70 @@
+.disabledField {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.pizyds_rain_button_field_type_1 {
+    right: 110px !important;
+}
+
+/* 
+https://flaviocopes.com/rotate-image/
+ */
+.rotating {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(359deg);
+    }
+}
+
+/* 
+https://stackoverflow.com/a/4407335/16407115
+ */
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#pizyds_rain_answer_font_size_default {
+    cursor: pointer
+}
+
+#pizyds_rain_answer_font_size_show {
+    display: inline-block;
+    width: 20px;
+}
+
+.no-text-decoration {
+    text-decoration: none !important;
+}
+
+.inherit-color {
+    color: inherit !important;
+}
+
+.footer-span {
+    text-align: center;
+    display: block;
+    opacity: 0.5;
+    a {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+}
+
+#pizyds_rain_footer_field {
+    padding-top: 10px;
+}
+
+#pizyds_rain_header_message {
+    color: red;
+}

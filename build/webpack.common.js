@@ -1,7 +1,6 @@
 /* eslint-env node */
 
-const path = require('path');
-const tampermonkey = require('./tampermonkey');
+const tampermonkey = require('./tampermonkey/plugin');
 
 module.exports = {
     entry: {
@@ -9,13 +8,18 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.css$/i,
-            use: ['style-loader', 'css-loader'],
+            test: /\.(css|scss)$/i,
+            use: [
+                'style-loader', 
+                'css-loader', 
+                'postcss-loader',
+                'sass-loader'
+            ],
         },{
-            test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            test: /\.(png|jpg|jpeg|gif)$/i,
             type: 'asset/inline',
         },{
-            test: /\.(txt|pem)$/i,
+            test: /\.(txt|pem|ejs|svg)$/i,
             type: 'asset/source'
         }]
     },
@@ -23,9 +27,10 @@ module.exports = {
         tampermonkey.BannerPlugin,
         tampermonkey.DefinePlugin
     ],
-    output: {
-        filename: 'Rain Classroom PDF Direct Download.user.js',
-        path: path.resolve(__dirname, '../dist'),
-        clean: true,
+    externals: {
+        jspdf: 'jspdf',
+        html2canvas: 'html2canvas',
+        'hybrid-crypto-js/web/hybrid-crypto.js': 'Crypt',
+        jquery: 'jQuery'
     }
 };

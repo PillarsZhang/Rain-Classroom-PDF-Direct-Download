@@ -33,7 +33,7 @@
     ]
     if(!checkFlagMeta()){
         console.log('[本地开发接口] 雨课堂课件PDF下载工具：已载入');
-        var scriptUrl = "https://localhost:8081/Rain%20Classroom%20PDF%20Direct%20Download.user.js";
+        var scriptUrl = "https://localhost:8081/Rain%20Classroom%20PDF%20Direct%20Download.user.temp.js";
         injectMethods[injectMethod](scriptUrl);
         //输入 npm test 以进行本地测试
     }

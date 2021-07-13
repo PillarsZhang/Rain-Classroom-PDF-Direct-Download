@@ -1,12 +1,15 @@
 {
   "name": "rain-classroom-pdf-direct-download",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "在雨课堂页面自动生成PDF版本课件提供下载",
   "private": true,
   "scripts": {
     "postinstall": "patch-package",
     "start": "webpack serve --config ./build/webpack.dev.js",
-    "build": "webpack --config ./build/webpack.prod.js"
+    "watch": "webpack --watch --config ./build/webpack.dev.js",
+    "build": "webpack --config ./build/webpack.prod.js",
+    "build:stats": "webpack --config ./build/webpack.prod.js --json > ./build/stats.json"
+
   },
   "repository": {
     "type": "git",
@@ -20,16 +23,28 @@
   },
   "homepage": "https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download#readme",
   "devDependencies": {
-    "html2canvas": "^0.5.0-beta4",
-    "hybrid-crypto-js": "^0.2.4",
-    "jspdf": "^2.3.1",
+    "autoprefixer": "^10.2.6",
+    "css-loader": "^5.2.6",
     "patch-package": "^6.4.7",
-    "webpack": "^5.42.1",
+    "postcss": "^8.3.5",
+    "postcss-loader": "^6.1.1",
+    "sass": "^1.35.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.0.0",
+    "webpack": "^5.44.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "bootstrap": "^5.0.2",
+    "bootstrap-icons": "^1.5.0",
+    "ejs": "^3.1.6",
+    "html2canvas": "^0.5.0-beta4",
+    "hybrid-crypto-js": "^0.2.4",
+    "jquery": "^3.6.0",
+    "jspdf": "^2.3.1",
     "upng-js": "^2.1.0",
     "uuid": "^3.4.0"
   }

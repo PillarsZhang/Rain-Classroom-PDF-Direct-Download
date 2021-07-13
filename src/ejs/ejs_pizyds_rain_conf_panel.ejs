@@ -1,0 +1,56 @@
+<div id="pizyds_rain_header_field">
+    <p>
+        版本：<%= BUILD_VERSION %>&nbsp;&nbsp;|&nbsp;&nbsp;编译时间：<%= BUILD_TIME %><br/>
+        脚本开源维护中，欢迎&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank" class="no-text-decoration">反馈问题</a><br/>
+    </p>
+    <p id="pizyds_rain_header_message" class="text-emphasis">
+        <%= HEADER_MESSAGE %>
+    </p>
+</div>
+
+<hr/>
+
+<div id="pizyds_rain_switch_field">
+    <div class="form-check form-switch form-check-inline">
+        <input class="form-check-input" type="checkbox" id="pizyds_rain_answer_switch" <%= ANS_ENABLED ? "checked" : "" %>>
+        <label class="form-check-label" for="pizyds_rain_answer_switch" title="仅支持“课堂”类型的课件">选择题答案</label>
+    </div>
+
+    <div class="form-check form-switch form-check-inline">
+        <input class="form-check-input" type="checkbox" id="pizyds_rain_drm_switch" <%= DRM_ENABLED ? "checked" : "" %> disabled>
+        <label class="form-check-label" for="pizyds_rain_drm_switch" title="默认不可更改，请查看帮助">
+            DRM&nbsp;<a href="https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/" target="_blank" class="no-text-decoration">(&nbsp;?&nbsp;)</a>
+        </label>
+    </div>
+</div>
+
+<hr/>
+
+<div id="pizyds_rain_answer_font_size_field" class="<%= ANS_ENABLED ? "" : "disabledField" %>">
+    <label for="pizyds_rain_answer_font_size_range" class="form-label">
+        答案字号&nbsp;
+        <span id="pizyds_rain_answer_font_size_show"><%= FONT_SIZE %></span>
+    </label>
+    <span id="pizyds_rain_answer_font_size_default" title="复位">
+        <%- DEFAULT_SVG %>
+    </span>
+    <input id="pizyds_rain_answer_font_size_range" type="range" class="form-range" min="0" max="80" step="1" value="<%= FONT_SIZE %>" <%= ANS_ENABLED ? "" : "disabled" %>>
+</div>
+
+<div id="pizyds_rain_footer_field">
+    <span class="footer-span">
+        - &nbsp; 
+        <a href="https://www.pizyds.com/rain-classroom-pdf-direct-download/" target="_blank" title="主页">
+            <%- HOUSE_SVG %>
+        </a>
+        &nbsp; | &nbsp; 
+        <a href="https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download" target="_blank" title="Github">
+            <%- GITHUB_SVG %>
+        </a>
+        &nbsp; | &nbsp; 
+        <a href="https://greasyfork.org/scripts/424050" target="_blank" title="Greasy Fork">
+            <%- CODE_SVG %>
+        </a>
+        &nbsp; -
+    </span>
+</div>

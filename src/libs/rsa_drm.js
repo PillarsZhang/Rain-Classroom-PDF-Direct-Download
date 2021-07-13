@@ -1,12 +1,15 @@
 import publicKey from '../key/rsa_2048_pub.pem';
 import { build_info } from './common';
 import { v4 as uuidv4 } from 'uuid';
-import hybrid_crypto_js from 'hybrid-crypto-js';
+import hybridCrypto from 'hybrid-crypto-js/web/hybrid-crypto.js';
 
-//小众的库，CDN上对WEB的模块引出方式和NODE有一点不一样，为了调试做以下兼容
-var hybrid_crypto_options = { aesKeySize: 128 };
-var crypt = window.PIZYDS_RAIN.MODE == "production" ? new hybrid_crypto_js(hybrid_crypto_options) : new hybrid_crypto_js.Crypt(hybrid_crypto_options);
+//小众的库，CDN上对WEB的模块引出方式和NODE有一点不一样
+var crypt = new hybridCrypto({ aesKeySize: 128 });
 
+/**
+ * 生成 DRM 信息
+ * @return {string}
+ */
 export function generateUserID(){
     var drm_json = {
         build_info,
@@ -29,16 +32,22 @@ export function generateUserID(){
     return drm_pizyds_rain_arr.join(":");
 }
 
+/**
+ * 生成 DRM 中的用户信息
+ * @return {string}
+ */
 export function generateUserProfile(){
-    var user_profile_raw = JSON.parse(localStorage.getItem("user_profile")) || {};
+    var way_1 = JSON.parse(localStorage.getItem("user_profile"));
+    var way_2 = JSON.parse(localStorage.getItem("vuex")) && JSON.parse(localStorage.getItem("vuex")).userInfo;
+    var user_profile_raw = way_1 || way_2 || {};
     var user_profile_name_raw = user_profile_raw.name || user_profile_raw.nickname || '?';
     var user_profile_name = "";
+    var user_profile_name_choose = randomIntFromInterval(0, user_profile_name_raw.length - 1);
     for (let i = 0; i < user_profile_name_raw.length; i++) {
-        user_profile_name += (i % 2 == 0) ? user_profile_name_raw[i] : '*'
+        user_profile_name += (i == user_profile_name_choose) ? user_profile_name_raw[i] : '*';
     }
     var user_profile = {
         user_id: user_profile_raw.user_id || '?',
-        school: user_profile_raw.school || '?',
         school_number: user_profile_raw.school_number || '?',
         name: user_profile_name
     }
@@ -50,4 +59,8 @@ function hexFingerprint2Base64(hex){
     var uint8 = new Uint8Array(keyHexs.length);
     keyHexs.forEach((value, index) => uint8[index] = parseInt(value, 16));
     return window.btoa(String.fromCharCode.apply(null, uint8));
+}
+
+function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
