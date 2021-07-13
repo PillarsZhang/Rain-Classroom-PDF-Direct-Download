@@ -11,7 +11,10 @@ module.exports = merge(common, {
         new webpack.DefinePlugin({ 'window.PIZYDS_RAIN.MODE': JSON.stringify('production') })
     ],
     output: {
-        filename: 'rain-classroom-pdf-direct-download.user.js',
+        filename: 'rain-classroom-pdf-direct-download.user.no_minimize.js',
         path: path.resolve(__dirname, '../dist')
+    },
+    optimization: {
+        minimize: false
     }
 });

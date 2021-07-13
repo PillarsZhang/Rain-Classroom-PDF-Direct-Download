@@ -8,6 +8,7 @@
     "start": "webpack serve --config ./build/webpack.dev.js",
     "watch": "webpack --watch --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js",
+    "build:no_minimize": "webpack --config ./build/webpack.prod.no_minimize.js",
     "build:stats": "webpack --config ./build/webpack.prod.js --json > ./build/stats.json"
 
   },
