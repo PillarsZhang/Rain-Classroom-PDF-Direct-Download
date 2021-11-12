@@ -1,6 +1,5 @@
 import { refreshProcessStatus, removeElement } from "./public.js";
 import html2canvas from "html2canvas";
-import UPNG from "upng-js";
 
 var hd_sample_sacle = 4;
 var hd_output_sacle = 2;
@@ -50,9 +49,9 @@ async function render(index, { el_ppts, processStatus }){
         c2.height = pos.o.height * hd_output_sacle;
         var ctx2 = c2.getContext('2d');
         ctx2.drawImage(c, 0, 0, c2.width, c2.height);
-        var dta = ctx2.getImageData(0, 0, c2.width, c2.height).data;
-        var png = UPNG.encode([dta.buffer], c2.width, c2.height, 0);
-        return {unit8: new Uint8Array(png), width: c2.width, height: c2.height};
+        var dta = ctx2.getImageData(0, 0, c2.width, c2.height);
+        dta.url = c2.toDataURL();
+        return dta;
     });
 }
 
@@ -63,16 +62,16 @@ async function render(index, { el_ppts, processStatus }){
 export default async function(){
     console.groupCollapsed("雨课堂课件PDF下载工具：HTML转高清Canvas...");
 
-    var unit8_ppts = [];
+    var RGBAData_ppts = [];
     var el_ppts = document.getElementsByClassName("pizyds_el_ppt");
     refreshProcessStatus("转换HTML...");
     for (let i = 0; i < el_ppts.length; i++){
         var processStatus = `${i+1}/${el_ppts.length}`;
         refreshProcessStatus(`转换HTML(${processStatus})`);
-        unit8_ppts[i] = await render(i, { el_ppts, processStatus });
-        console.log(`雨课堂课件PDF下载工具：${processStatus} - 第${i+1}页 - size: ${unit8_ppts[i].unit8.length}, ${unit8_ppts[i].width}x${unit8_ppts[i].height}`);
+        RGBAData_ppts[i] = await render(i, { el_ppts, processStatus });
+        console.log(`雨课堂课件PDF下载工具：${processStatus} - 第${i+1}页 - size: ${RGBAData_ppts[i].data.length}, ${RGBAData_ppts[i].width}x${RGBAData_ppts[i].height}`);
     }
     console.groupEnd();
     console.log(`雨课堂课件PDF下载工具：完成转换`);
-    return unit8_ppts;
+    return RGBAData_ppts;
 }

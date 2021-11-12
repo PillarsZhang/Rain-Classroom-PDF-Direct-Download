@@ -45,8 +45,7 @@
     "html2canvas": "^0.5.0-beta4",
     "hybrid-crypto-js": "^0.2.4",
     "jquery": "^3.6.0",
-    "jspdf": "^2.3.1",
-    "upng-js": "^2.1.0",
+    "jspdf": "^2.4.0",
     "uuid": "^3.4.0"
   }
 }

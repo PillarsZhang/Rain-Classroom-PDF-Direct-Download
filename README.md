@@ -30,7 +30,6 @@ The code pushed to Greasy Fork this time is packaged by webpack. All the source 
 该脚本将前端技术最大化，分析当前页面的 DOM ，完全在本地浏览器内处理，不发送任何无关请求，所使用的外部库均开源且引用自公共 CDN 和 NPM，进行 webpack 压缩打包以求高效。
 
 - [jsPDF](https://github.com/MrRio/jsPDF) 用于 PDF 的生成
-- [UPNG.js](https://github.com/photopea/UPNG.js/) 用于 PNG 的反交错和压缩
 - [html2canvas](https://github.com/niklasvh/html2canvas) 将“课件”类型 PPT 的 HTML 内容转换为位图（很坑）
 - [hybrid-crypto-js](https://github.com/juhoen/hybrid-crypto-js) RSA + AES 混合加密保证 DRM 信息安全
 - [Bootstrap](https://getbootstrap.com) UI 样式库，主要使用了 Popovers 插件以及图标库

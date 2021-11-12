@@ -15,7 +15,7 @@ export function refreshProcessStatus(processStatus){
 }
 
 //修改自：http://www.jsfun.cn/#textBecomeImg
-//js使用canvas将文字转换成图像数据base64
+//js使用canvas将文字转换成ImageData对象
 export function text2img(text, fontsize, fontcolor){
     var canvas = document.createElement('canvas');
     canvas.height = parseInt(fontsize * 1.2);
@@ -34,8 +34,9 @@ export function text2img(text, fontsize, fontcolor){
     ctx.textBaseline = 'middle';
     ctx.fillText(text, 0, fontsize/2);
 
-    var dataUrl = canvas.toDataURL('image/png');
-    return {data: dataUrl, width: canvas.width, height: canvas.height};
+    var dta = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    dta.url = canvas.toDataURL();
+    return dta;
 }
 
 //来自：https://www.cnblogs.com/ranyonsue/p/7596347.html
@@ -106,4 +107,35 @@ export function clearVersionUpdate () {
     } else {
         return false;
     }
+}
+
+//https://stackoverflow.com/questions/52059596/loading-an-image-on-web-browser-using-promise/52060802
+/**
+ * 将图片链接转化为HTMLImageElement对象
+ * @param {string} url 图片链接
+ * @return {HTMLImageElement} HTMLImageElement对象
+ */
+export const url2HTMLImageElement = (url) => new Promise((resolve, reject) => {
+    const img = new Image();
+    img.addEventListener('load', () => resolve(img));
+    img.addEventListener('error', (err) => reject(err));
+    img.crossOrigin = "anonymous";
+    img.src = url;
+});
+
+/**
+ * 将图片链接转化为ImageData对象
+ * @param {string} url 图片链接
+ * @return {ImageData} ImageData对象
+ */
+export async function url2ImgData(url){
+    var img = await url2HTMLImageElement(url);
+    var canvas = document.createElement('canvas');
+    canvas.height = img.height;
+    canvas.width = img.width;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    var dta = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    dta.url = canvas.toDataURL();
+    return dta;
 }
