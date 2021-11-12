@@ -14,6 +14,7 @@ function createNewChromeDevelopApi(template){
     var tempScriptPath = path.resolve(__dirname, '../../dist/rain-classroom-pdf-direct-download.user.temp.js');
     var requireText = `\n// @require      file:///${encodeURI(tempScriptPath.replaceAll('\\', '/'))}`
     var chromeDevelopApi = template({ version, require: requireText, prefix: "[chrome-develop-api] " });
+    chromeDevelopApi = chromeDevelopApi.replace(/\.min\.js/g, '.js');
     fs.writeFileSync(apiPath, chromeDevelopApi);
 }
 
