@@ -2,7 +2,7 @@ import ejs_conf_panel from "../ejs/ejs_pizyds_rain_conf_panel.ejs";
 import ejs_conf_title from "../ejs/ejs_pizyds_rain_conf_title.ejs";
 import ejs from "ejs/ejs.js"
 import Popover from 'bootstrap/js/dist/popover';
-import { build_info, ans_config, drm_config } from "./common";
+import { build_info, ans_config, drm_config, time_object } from "./common";
 import { adjustSVGSize, judgeVersionUpdate, textVersionUpdate, clearVersionUpdate } from "./public";
 import '../styles/css_pizyds_rain.scss';
 import default_svg from 'bootstrap-icons/icons/arrow-return-left.svg'
@@ -49,6 +49,7 @@ export default function(buttonEle){
     $("html").on('click', function (e) {
         var popoverEle = $('.pizyds_rain_conf_popover')[0];
         if (
+          time_object.popover_can_hide < Date.now() && 
           popoverEle && 
           !$(buttonEle).is(e.target) && 
           $(buttonEle).has(e.target).length == 0 && 

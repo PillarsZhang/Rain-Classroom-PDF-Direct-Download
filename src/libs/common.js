@@ -77,3 +77,9 @@ function autoGMValue(obj, objName){
 function refreshGMValue(obj, key){
     obj[key] = obj[key].valueOf();
 }
+
+export var time_object = {
+    popover_can_hide: Date.now()
+}
+
+}

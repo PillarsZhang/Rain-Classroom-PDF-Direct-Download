@@ -1,4 +1,4 @@
-import { refreshProcessStatus, removeElement } from "./public.js";
+import { refreshProcessStatus, refreshHeaderMessage, removeElement } from "./public.js";
 import html2canvas from "html2canvas";
 
 var hd_sample_sacle = 4;
@@ -52,6 +52,11 @@ async function render(index, { el_ppts, processStatus }){
         var dta = ctx2.getImageData(0, 0, c2.width, c2.height);
         dta.url = c2.toDataURL();
         return dta;
+    }).catch(err => {
+        console.error(err);
+        refreshProcessStatus(false);
+        refreshHeaderMessage(`HTML转高清Canvas出错（第${index+1}页）`, 'Warning');
+        throw err;
     });
 }
 

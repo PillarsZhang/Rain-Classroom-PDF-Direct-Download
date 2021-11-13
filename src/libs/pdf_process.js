@@ -8,7 +8,7 @@ import { generateUserID } from './rsa_drm.js';
  * @param img_list 图片列表
  * @param filename 保存的文件名
  * @param answer_list 答案列表
- * @return {void}
+ * @return {Promise}
  */
 export default async function(img_list, filename, answer_list){
     console.groupCollapsed("雨课堂课件PDF下载工具：生成PDF...");

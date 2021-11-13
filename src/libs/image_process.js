@@ -1,4 +1,4 @@
-import { refreshProcessStatus, url2ImgData } from "./public.js";
+import { refreshProcessStatus, refreshHeaderMessage, url2ImgData } from "./public.js";
 
 /**
  * 借助Canvas，进行图片下载与并转化为ImageData(RGBAData)
@@ -19,7 +19,9 @@ export default function (url_slides){
             return ImageData;
         }).catch(err => {
             console.error(err);
-            alert("雨课堂课件PDF下载工具：图像处理出错");
+            refreshProcessStatus(false);
+            refreshHeaderMessage(`图像处理出错（第${i+1}页：${url_slides[i]}）`, 'Warning');
+            throw err;
         });
     }
     return Promise.all(promiseList);
