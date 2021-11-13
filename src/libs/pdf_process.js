@@ -19,12 +19,9 @@ export default async function(img_list, filename, answer_list){
         hotfixes: ["px_scaling"]
     });
     injectXMP(doc, [img_list[0].width, img_list[0].height]);
-    await addPPT(0, doc, img_list, answer_list);
-    refreshProcessStatus(`生成PDF(1/${img_list.length})`);
-    await sleep(10);
 
-    for (let i = 1; i < img_list.length; i++){
-        doc.addPage([img_list[i].width, img_list[i].height], "landscape");
+    for (let i = 0; i < img_list.length; i++){
+        i > 0 && doc.addPage([img_list[i].width, img_list[i].height], "landscape");
         await addPPT(i, doc, img_list, answer_list);
         refreshProcessStatus(`生成PDF(${i+1}/${img_list.length})`);
         await sleep(10);
