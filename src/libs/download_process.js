@@ -38,14 +38,14 @@ export default function (el_dialog, url_type = 1){
                     await pdf_process(img_list, filename, answer_list).catch(err => {
                         console.error(err);
                         refreshProcessStatus(false);
-                        refreshHeaderMessage("PDF生成出错", 'Warning');
+                        refreshHeaderMessage("PDF生成出错", 'Warn');
                         throw err;
                     });
                     refreshProcessStatus(false);
                 })
             } else{
                 refreshProcessStatus(false);
-                refreshHeaderMessage("没有提取到图片", 'Warning');
+                refreshHeaderMessage("没有提取到图片", 'Warn');
             }
         }
     },{
@@ -64,14 +64,14 @@ export default function (el_dialog, url_type = 1){
                     await pdf_process(img_list, filename, answer_list).catch(err => {
                         console.error(err);
                         refreshProcessStatus(false);
-                        refreshHeaderMessage("PDF生成出错", 'Warning');
+                        refreshHeaderMessage("PDF生成出错", 'Warn');
                         throw err;
                     });
                     refreshProcessStatus(false);
                 })
             } else{
                 refreshProcessStatus(false);
-                refreshHeaderMessage("没有提取到图片", 'Warning');
+                refreshHeaderMessage("没有提取到图片", 'Warn');
             }
         }
     }];

@@ -20,7 +20,7 @@ export default function (url_slides){
         }).catch(err => {
             console.error(err);
             refreshProcessStatus(false);
-            refreshHeaderMessage(`图像处理出错（第${i+1}页：${url_slides[i]}）`, 'Warning');
+            refreshHeaderMessage(`图像处理出错（第${i+1}页：${url_slides[i]}）`, 'Warn');
             throw err;
         });
     }

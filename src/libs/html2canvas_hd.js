@@ -55,7 +55,7 @@ async function render(index, { el_ppts, processStatus }){
     }).catch(err => {
         console.error(err);
         refreshProcessStatus(false);
-        refreshHeaderMessage(`HTML转高清Canvas出错（第${index+1}页）`, 'Warning');
+        refreshHeaderMessage(`HTML转高清Canvas出错（第${index+1}页）`, 'Warn');
         throw err;
     });
 }

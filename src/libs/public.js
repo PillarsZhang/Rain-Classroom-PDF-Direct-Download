@@ -96,7 +96,7 @@ export function judgeVersionUpdate() {
 
 export var textVersionUpdate = {
     "new": `感谢！新安装：${env_config.version} -> ${build_info.version}，更新内容：${update_info}`,
-    "up": `感谢！已升级：${env_config.version} -> ${build_info.version}，更新内容：（${update_info}`,
+    "up": `感谢！已升级：${env_config.version} -> ${build_info.version}，更新内容：${update_info}`,
     "down": `啊？已降级：${env_config.version} -> ${build_info.version}`
 }
 
@@ -140,24 +140,24 @@ export async function url2ImgData(url){
     return dta;
 }
 
-var headerMessage = "";
+var headerMessage = [];
 //控制面板信息刷新
-export function refreshHeaderMessage(message, type = 'Info'){
+export function refreshHeaderMessage(message, type = 'Info', show = true){
     var suffix = {
-        'Warning': '具体请参考控制台报错信息',
+        'Warn': '具体请参考控制台报错信息',
         'Info': ''
     }
     if (!message){
-        headerMessage = ""
+        headerMessage = []
     } else{
         time_object.popover_can_hide = Date.now() + 500;
-        headerMessage = `[${type}] ${message} ${suffix[type]}`;
-        $('#pizyds_rain_config_button').popover('show');
+        headerMessage.push(`[${type}] ${message} ${suffix[type]}`);
+        show && $('#pizyds_rain_config_button').popover('show');
     }
 }
 
 export function getHeaderMessage(){
-    var temp = headerMessage;
-    headerMessage = "";
+    var temp = headerMessage.join('<br>');
+    headerMessage = [];
     return temp
 }
