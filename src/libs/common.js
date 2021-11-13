@@ -77,3 +77,15 @@ function autoGMValue(obj, objName){
 function refreshGMValue(obj, key){
     obj[key] = obj[key].valueOf();
 }
+
+export var time_object = {
+    popover_can_hide: Date.now()
+}
+
+var update_info_list = {
+    '1.3.1': `优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug`
+}
+
+export var update_info = update_info_list[build_info.version] ? 
+  update_info_list[build_info.version] : 
+  '好像没有更新信息';

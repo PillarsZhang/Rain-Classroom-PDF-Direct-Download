@@ -1,6 +1,6 @@
 import icon_download_svg from 'bootstrap-icons/icons/file-earmark-pdf.svg';
 import icon_config_svg from 'bootstrap-icons/icons/gear-fill.svg';
-import { addSVGClass, adjustSVGSize } from './public.js';
+import { addSVGClass, adjustSVGSize, refreshHeaderMessage } from './public.js';
 import conf_panel from './conf_panel';
 import download_process from './download_process.js';
 import ejs_pizyds_rain_download_button from '../ejs/ejs_pizyds_rain_download_button.ejs';
@@ -33,6 +33,8 @@ export default function button_download(el_dialog, url_type = 1){
             $("#pizyds_rain_download_button").off();
             $("#pizyds_rain_download_button").on("click", () => download_process(el_dialog, url_type));
             conf_panel($("#pizyds_rain_config_button"));
+
+            if (url_type == 2) refreshHeaderMessage('“课件”类型不支持添加选择题答案', 'Info', false);
             console.log(`雨课堂课件PDF下载工具：按钮注入成功 - type ${url_type}`);
         } catch (err) {
             return false;

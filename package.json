@@ -1,16 +1,15 @@
 {
   "name": "rain-classroom-pdf-direct-download",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "在雨课堂页面自动生成PDF版本课件提供下载",
   "private": true,
   "scripts": {
     "postinstall": "patch-package",
     "start": "webpack serve --config ./build/webpack.dev.js",
     "watch": "webpack --watch --config ./build/webpack.dev.js",
-    "build": "webpack --config ./build/webpack.prod.js",
-    "build:no_minimize": "webpack --config ./build/webpack.prod.no_minimize.js",
-    "build:stats": "webpack --config ./build/webpack.prod.js --json > ./build/stats.json"
-
+    "build": "webpack --config ./build/webpack.prod.js && npm run replace:projectRootPath",
+    "build:stats": "webpack --config ./build/webpack.prod.js --json > ./build/stats.json",
+    "replace:projectRootPath": "replace-in-file --configFile=./build/replace-in-file.config.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +28,7 @@
     "patch-package": "^6.4.7",
     "postcss": "^8.3.5",
     "postcss-loader": "^6.1.1",
+    "replace-in-file": "^6.3.2",
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",
@@ -45,8 +45,7 @@
     "html2canvas": "^0.5.0-beta4",
     "hybrid-crypto-js": "^0.2.4",
     "jquery": "^3.6.0",
-    "jspdf": "^2.3.1",
-    "upng-js": "^2.1.0",
+    "jspdf": "^2.4.0",
     "uuid": "^3.4.0"
   }
 }

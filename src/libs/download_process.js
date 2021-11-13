@@ -4,7 +4,7 @@ import pdf_process from './pdf_process.js';
 import get_html_slides from './get_html_slides.js';
 import html2canvas_hd from './html2canvas_hd.js';
 import get_answers from './get_answers.js';
-import { refreshProcessStatus, sleep } from './public.js';
+import { refreshProcessStatus, refreshHeaderMessage, sleep } from './public.js';
 import { ans_config } from './common.js';
 
 /**
@@ -35,11 +35,17 @@ export default function (el_dialog, url_type = 1){
                     var ppt_name = document.getElementsByClassName("ppt_name")[0].innerText;
                     var filename = ppt_name + ".pdf";
                     var answer_list = ans_config.enabled ? get_answers(url_slides): [];
-                    pdf_process(img_list, filename, answer_list);
+                    await pdf_process(img_list, filename, answer_list).catch(err => {
+                        console.error(err);
+                        refreshProcessStatus(false);
+                        refreshHeaderMessage("PDF生成出错", 'Warn');
+                        throw err;
+                    });
                     refreshProcessStatus(false);
                 })
             } else{
-                alert("雨课堂课件PDF下载工具：没有提取到图片");
+                refreshProcessStatus(false);
+                refreshHeaderMessage("没有提取到图片", 'Warn');
             }
         }
     },{
@@ -55,11 +61,17 @@ export default function (el_dialog, url_type = 1){
                     var ppt_name = document.getElementsByClassName("ppt_name")[0].innerText;
                     var filename = ppt_name + ".pdf";
                     var answer_list = [];
-                    pdf_process(img_list, filename, answer_list);
+                    await pdf_process(img_list, filename, answer_list).catch(err => {
+                        console.error(err);
+                        refreshProcessStatus(false);
+                        refreshHeaderMessage("PDF生成出错", 'Warn');
+                        throw err;
+                    });
                     refreshProcessStatus(false);
                 })
             } else{
-                alert("雨课堂课件PDF下载工具：没有提取到图片");
+                refreshProcessStatus(false);
+                refreshHeaderMessage("没有提取到图片", 'Warn');
             }
         }
     }];
