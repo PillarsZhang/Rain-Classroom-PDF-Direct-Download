@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { build_info, env_config, time_object } from "./common";
+import { build_info, env_config, time_object, update_info } from "./common";
 import { SemVer } from "semver";
 
 //按钮文本刷新
@@ -95,8 +95,8 @@ export function judgeVersionUpdate() {
 
 
 export var textVersionUpdate = {
-    "new": `感谢！新安装：${env_config.version} -> ${build_info.version}`,
-    "up": `感谢！已升级：${env_config.version} -> ${build_info.version}`,
+    "new": `感谢！新安装：${env_config.version} -> ${build_info.version}，更新内容：${update_info}`,
+    "up": `感谢！已升级：${env_config.version} -> ${build_info.version}，更新内容：（${update_info}`,
     "down": `啊？已降级：${env_config.version} -> ${build_info.version}`
 }
 
@@ -140,18 +140,24 @@ export async function url2ImgData(url){
     return dta;
 }
 
-//控制面板错误信息刷新
+var headerMessage = "";
+//控制面板信息刷新
 export function refreshHeaderMessage(message, type = 'Info'){
     var suffix = {
         'Warning': '具体请参考控制台报错信息',
         'Info': ''
     }
     if (!message){
-        $("#pizyds_rain_header_message").html("");
+        headerMessage = ""
     } else{
         time_object.popover_can_hide = Date.now() + 500;
-        !$('.pizyds_rain_conf_popover').length && $("#pizyds_rain_config_button").trigger("click");
-        let fullMessage = `[${type}] ${message} ${suffix[type]}`;
-        $("#pizyds_rain_header_message").html(fullMessage);
+        headerMessage = `[${type}] ${message} ${suffix[type]}`;
+        $('#pizyds_rain_config_button').popover('show');
     }
+}
+
+export function getHeaderMessage(){
+    var temp = headerMessage;
+    headerMessage = "";
+    return temp
 }

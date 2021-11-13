@@ -1,9 +1,9 @@
 import ejs_conf_panel from "../ejs/ejs_pizyds_rain_conf_panel.ejs";
 import ejs_conf_title from "../ejs/ejs_pizyds_rain_conf_title.ejs";
 import ejs from "ejs/ejs.js"
-import Popover from 'bootstrap/js/dist/popover';
+import 'bootstrap/js/dist/popover';
 import { build_info, ans_config, drm_config, time_object } from "./common";
-import { adjustSVGSize, judgeVersionUpdate, textVersionUpdate, clearVersionUpdate } from "./public";
+import { adjustSVGSize, judgeVersionUpdate, textVersionUpdate, clearVersionUpdate, getHeaderMessage, refreshHeaderMessage } from "./public";
 import '../styles/css_pizyds_rain.scss';
 import default_svg from 'bootstrap-icons/icons/arrow-return-left.svg'
 import github_svg from 'bootstrap-icons/icons/github.svg'
@@ -18,13 +18,13 @@ import $ from "jquery";
  */
 export default function(buttonEle){
     var form_templ = ejs_conf_panel;
-    var form_html = ejs.render(form_templ, {
+    var form_html = () => ejs.render(form_templ, {
         BUILD_VERSION: build_info.version,
         BUILD_TIME: formatDate(new Date(build_info.timestamp)),
         ANS_ENABLED: ans_config.enabled,
         DRM_ENABLED: drm_config.enabled,
         FONT_SIZE: ans_config.fontSize,
-        HEADER_MESSAGE: judgeVersionUpdate() && textVersionUpdate[judgeVersionUpdate()] || "",
+        HEADER_MESSAGE: getHeaderMessage(),
         DEFAULT_SVG: adjustSVGSize(default_svg, 12),
         HOUSE_SVG: adjustSVGSize(house_svg, 12),
         GITHUB_SVG: adjustSVGSize(github_svg, 12),
@@ -32,8 +32,9 @@ export default function(buttonEle){
     });
     var container = $(".pizyds_rain")[0];
     $(container).off();
+
     // eslint-disable-next-line no-unused-vars
-    var popoverIns = new Popover(buttonEle, {
+    $(buttonEle).popover({
         title: ejs.render(ejs_conf_title),
         container,
         content: form_html,
@@ -93,8 +94,11 @@ export default function(buttonEle){
         drm_config.enabled = this.checked;
     })
 
-    clearVersionUpdate() && $(buttonEle).trigger("click");
-
+    //更新提示
+    if (judgeVersionUpdate()){
+        refreshHeaderMessage(textVersionUpdate[judgeVersionUpdate()]);
+        clearVersionUpdate();
+    }
 }
 
 /**

@@ -82,4 +82,10 @@ export var time_object = {
     popover_can_hide: Date.now()
 }
 
+var update_info_list = {
+    '1.3.1': `优化了生成速度、格式兼容、报错信息`
 }
+
+export var update_info = update_info_list[build_info.version] ? 
+  update_info_list[build_info.version] : 
+  '好像没有更新信息';
