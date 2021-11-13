@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf';
-import { text2img } from './public.js';
+import { refreshProcessStatus, text2img, sleep } from './public.js';
 import { ans_config, drm_config } from './common.js';
 import { generateUserID } from './rsa_drm.js';
 
@@ -10,7 +10,7 @@ import { generateUserID } from './rsa_drm.js';
  * @param answer_list 答案列表
  * @return {void}
  */
-export default function(img_list, filename, answer_list){
+export default async function(img_list, filename, answer_list){
     console.groupCollapsed("雨课堂课件PDF下载工具：生成PDF...");
     var doc = new jsPDF({
         orientation: "landscape",
@@ -19,10 +19,15 @@ export default function(img_list, filename, answer_list){
         hotfixes: ["px_scaling"]
     });
     injectXMP(doc, [img_list[0].width, img_list[0].height]);
-    addPPT(0, doc, img_list, answer_list);
+    await addPPT(0, doc, img_list, answer_list);
+    refreshProcessStatus(`生成PDF(1/${img_list.length})`);
+    await sleep(10);
+
     for (let i = 1; i < img_list.length; i++){
         doc.addPage([img_list[i].width, img_list[i].height], "landscape");
-        addPPT(i, doc, img_list, answer_list);
+        await addPPT(i, doc, img_list, answer_list);
+        refreshProcessStatus(`生成PDF(${i+1}/${img_list.length})`);
+        await sleep(10);
     }
     console.groupEnd();
     doc.save(filename);
@@ -35,9 +40,9 @@ export default function(img_list, filename, answer_list){
  * @param {number} index
  * @param {jsPDF} doc jsPDF 对象
  * @param {Array} answer_list 答案列表
- * @return {void}
+ * @return {Promise}
  */
-function addPPT(index, doc, img_list, answer_list){
+async function addPPT(index, doc, img_list, answer_list){
     console.log(`雨课堂课件PDF下载工具：第 ${index+1} 页 - PPT`);
     doc.addImage({
         imageData: img_list[index].url,

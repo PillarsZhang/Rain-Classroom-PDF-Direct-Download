@@ -35,7 +35,7 @@ export default function (el_dialog, url_type = 1){
                     var ppt_name = document.getElementsByClassName("ppt_name")[0].innerText;
                     var filename = ppt_name + ".pdf";
                     var answer_list = ans_config.enabled ? get_answers(url_slides): [];
-                    pdf_process(img_list, filename, answer_list);
+                    await pdf_process(img_list, filename, answer_list);
                     refreshProcessStatus(false);
                 })
             } else{
@@ -55,7 +55,7 @@ export default function (el_dialog, url_type = 1){
                     var ppt_name = document.getElementsByClassName("ppt_name")[0].innerText;
                     var filename = ppt_name + ".pdf";
                     var answer_list = [];
-                    pdf_process(img_list, filename, answer_list);
+                    await pdf_process(img_list, filename, answer_list);
                     refreshProcessStatus(false);
                 })
             } else{
