@@ -7861,7 +7861,7 @@ module.exports = v4;
 /***/ ((module) => {
 
 "use strict";
-module.exports = "<div id=\"pizyds_rain_header_field\">\r\n    <p>\r\n        版本：<%= BUILD_VERSION %>&nbsp;&nbsp;|&nbsp;&nbsp;编译时间：<%= BUILD_TIME %><br/>\r\n        脚本开源维护中，欢迎&nbsp;<a href=\"https://www.pizyds.com/rain-classroom-pdf-direct-download/\" target=\"_blank\" class=\"no-text-decoration\">反馈问题</a><br/>\r\n    </p>\r\n    <p id=\"pizyds_rain_header_message\" class=\"text-emphasis\">\r\n        <%= HEADER_MESSAGE %>\r\n    </p>\r\n</div>\r\n\r\n<hr/>\r\n\r\n<div id=\"pizyds_rain_switch_field\">\r\n    <div class=\"form-check form-switch form-check-inline\">\r\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"pizyds_rain_answer_switch\" <%= ANS_ENABLED ? \"checked\" : \"\" %>>\r\n        <label class=\"form-check-label\" for=\"pizyds_rain_answer_switch\" title=\"仅支持“课堂”类型的课件\">选择题答案</label>\r\n    </div>\r\n\r\n    <div class=\"form-check form-switch form-check-inline\">\r\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"pizyds_rain_drm_switch\" <%= DRM_ENABLED ? \"checked\" : \"\" %> disabled>\r\n        <label class=\"form-check-label\" for=\"pizyds_rain_drm_switch\" title=\"默认不可更改，请查看帮助\">\r\n            DRM&nbsp;<a href=\"https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/\" target=\"_blank\" class=\"no-text-decoration\">(&nbsp;?&nbsp;)</a>\r\n        </label>\r\n    </div>\r\n</div>\r\n\r\n<hr/>\r\n\r\n<div id=\"pizyds_rain_answer_font_size_field\" class=\"<%= ANS_ENABLED ? \"\" : \"disabledField\" %>\">\r\n    <label for=\"pizyds_rain_answer_font_size_range\" class=\"form-label\">\r\n        答案字号&nbsp;\r\n        <span id=\"pizyds_rain_answer_font_size_show\"><%= FONT_SIZE %></span>\r\n    </label>\r\n    <span id=\"pizyds_rain_answer_font_size_default\" title=\"复位\">\r\n        <%- DEFAULT_SVG %>\r\n    </span>\r\n    <input id=\"pizyds_rain_answer_font_size_range\" type=\"range\" class=\"form-range\" min=\"0\" max=\"80\" step=\"1\" value=\"<%= FONT_SIZE %>\" <%= ANS_ENABLED ? \"\" : \"disabled\" %>>\r\n</div>\r\n\r\n<div id=\"pizyds_rain_footer_field\">\r\n    <span class=\"footer-span\">\r\n        - &nbsp; \r\n        <a href=\"https://www.pizyds.com/rain-classroom-pdf-direct-download/\" target=\"_blank\" title=\"主页\">\r\n            <%- HOUSE_SVG %>\r\n        </a>\r\n        &nbsp; | &nbsp; \r\n        <a href=\"https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download\" target=\"_blank\" title=\"Github\">\r\n            <%- GITHUB_SVG %>\r\n        </a>\r\n        &nbsp; | &nbsp; \r\n        <a href=\"https://greasyfork.org/scripts/424050\" target=\"_blank\" title=\"Greasy Fork\">\r\n            <%- CODE_SVG %>\r\n        </a>\r\n        &nbsp; -\r\n    </span>\r\n</div>";
+module.exports = "<div id=\"pizyds_rain_header_field\">\r\n    <p>\r\n        版本：<%= BUILD_VERSION %>&nbsp;&nbsp;|&nbsp;&nbsp;编译时间：<%= BUILD_TIME %><br/>\r\n        脚本开源维护中，欢迎&nbsp;<a href=\"https://www.pizyds.com/rain-classroom-pdf-direct-download/\" target=\"_blank\" class=\"no-text-decoration\">反馈问题</a><br/>\r\n    </p>\r\n    <p id=\"pizyds_rain_header_message\" class=\"text-emphasis\">\r\n        <%- HEADER_MESSAGE %>\r\n    </p>\r\n</div>\r\n\r\n<hr/>\r\n\r\n<div id=\"pizyds_rain_switch_field\">\r\n    <div class=\"form-check form-switch form-check-inline\">\r\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"pizyds_rain_answer_switch\" <%= ANS_ENABLED ? \"checked\" : \"\" %>>\r\n        <label class=\"form-check-label\" for=\"pizyds_rain_answer_switch\" title=\"仅支持“课堂”类型的课件\">选择题答案</label>\r\n    </div>\r\n\r\n    <div class=\"form-check form-switch form-check-inline\">\r\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"pizyds_rain_drm_switch\" <%= DRM_ENABLED ? \"checked\" : \"\" %> disabled>\r\n        <label class=\"form-check-label\" for=\"pizyds_rain_drm_switch\" title=\"默认不可更改，请查看帮助\">\r\n            DRM&nbsp;<a href=\"https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/\" target=\"_blank\" class=\"no-text-decoration\">(&nbsp;?&nbsp;)</a>\r\n        </label>\r\n    </div>\r\n</div>\r\n\r\n<hr/>\r\n\r\n<div id=\"pizyds_rain_answer_font_size_field\" class=\"<%= ANS_ENABLED ? \"\" : \"disabledField\" %>\">\r\n    <label for=\"pizyds_rain_answer_font_size_range\" class=\"form-label\">\r\n        答案字号&nbsp;\r\n        <span id=\"pizyds_rain_answer_font_size_show\"><%= FONT_SIZE %></span>\r\n    </label>\r\n    <span id=\"pizyds_rain_answer_font_size_default\" title=\"复位\">\r\n        <%- DEFAULT_SVG %>\r\n    </span>\r\n    <input id=\"pizyds_rain_answer_font_size_range\" type=\"range\" class=\"form-range\" min=\"0\" max=\"80\" step=\"1\" value=\"<%= FONT_SIZE %>\" <%= ANS_ENABLED ? \"\" : \"disabled\" %>>\r\n</div>\r\n\r\n<div id=\"pizyds_rain_footer_field\">\r\n    <span class=\"footer-span\">\r\n        - &nbsp; \r\n        <a href=\"https://www.pizyds.com/rain-classroom-pdf-direct-download/\" target=\"_blank\" title=\"主页\">\r\n            <%- HOUSE_SVG %>\r\n        </a>\r\n        &nbsp; | &nbsp; \r\n        <a href=\"https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download\" target=\"_blank\" title=\"Github\">\r\n            <%- GITHUB_SVG %>\r\n        </a>\r\n        &nbsp; | &nbsp; \r\n        <a href=\"https://greasyfork.org/scripts/424050\" target=\"_blank\" title=\"Greasy Fork\">\r\n            <%- CODE_SVG %>\r\n        </a>\r\n        &nbsp; -\r\n    </span>\r\n</div>";
 
 /***/ }),
 
@@ -7976,7 +7976,7 @@ autoGMValue(env_config, "env_config");
 var build_info = {
     name: "rain-classroom-pdf-direct-download",
     version: "1.3.1",
-    timestamp: 1636743779436,
+    timestamp: 1636822729351,
 }
 
 //对自动添加客观题答案到PPT页面的配置
@@ -8042,6 +8042,18 @@ function autoGMValue(obj, objName){
 function refreshGMValue(obj, key){
     obj[key] = obj[key].valueOf();
 }
+
+var time_object = {
+    popover_can_hide: Date.now()
+}
+
+var update_info_list = {
+    '1.3.1': `优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug`
+}
+
+var update_info = update_info_list[build_info.version] ? 
+  update_info_list[build_info.version] : 
+  '好像没有更新信息';
 // EXTERNAL MODULE: PRPS\node_modules\bootstrap-icons\icons\file-earmark-pdf.svg
 var PRPU_node_modules_bootstrap_icons_icons_file_earmark_pdf = __webpack_require__(154);
 // EXTERNAL MODULE: PRPS\node_modules\bootstrap-icons\icons\gear-fill.svg
@@ -8149,8 +8161,8 @@ function judgeVersionUpdate() {
 
 
 var textVersionUpdate = {
-    "new": `感谢！新安装：${env_config.version} -> ${build_info.version}`,
-    "up": `感谢！已升级：${env_config.version} -> ${build_info.version}`,
+    "new": `感谢！新安装：${env_config.version} -> ${build_info.version}，更新内容：${update_info}`,
+    "up": `感谢！已升级：${env_config.version} -> ${build_info.version}，更新内容：${update_info}`,
     "down": `啊？已降级：${env_config.version} -> ${build_info.version}`
 }
 
@@ -8193,6 +8205,28 @@ async function url2ImgData(url){
     dta.url = canvas.toDataURL();
     return dta;
 }
+
+var headerMessage = [];
+//控制面板信息刷新
+function refreshHeaderMessage(message, type = 'Info', show = true){
+    var suffix = {
+        'Warn': '具体请参考控制台报错信息',
+        'Info': ''
+    }
+    if (!message){
+        headerMessage = []
+    } else{
+        time_object.popover_can_hide = Date.now() + 500;
+        headerMessage.push(`[${type}] ${message} ${suffix[type]}`);
+        show && external_jQuery_default()('#pizyds_rain_config_button').popover('show');
+    }
+}
+
+function getHeaderMessage(){
+    var temp = headerMessage.join('<br>');
+    headerMessage = [];
+    return temp
+}
 // EXTERNAL MODULE: PRPS\src\ejs\ejs_pizyds_rain_conf_panel.ejs
 var PRPU_src_ejs_ejs_pizyds_rain_conf_panel = __webpack_require__(391);
 // EXTERNAL MODULE: PRPS\src\ejs\ejs_pizyds_rain_conf_title.ejs
@@ -8202,7 +8236,6 @@ var PRPU_node_modules_ejs_ejs = __webpack_require__(56);
 var PRPU_node_modules_ejs_ejs_default = /*#__PURE__*/__webpack_require__.n(PRPU_node_modules_ejs_ejs);
 // EXTERNAL MODULE: PRPS\node_modules\bootstrap\js\dist\popover.js
 var PRPU_node_modules_bootstrap_js_dist_popover = __webpack_require__(960);
-var PRPU_node_modules_bootstrap_js_dist_popover_default = /*#__PURE__*/__webpack_require__.n(PRPU_node_modules_bootstrap_js_dist_popover);
 // EXTERNAL MODULE: PRPS\node_modules\style-loader\dist\runtime\injectStylesIntoStyleTag.js
 var PRPU_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag = __webpack_require__(597);
 var PRPU_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(PRPU_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag);
@@ -8298,13 +8331,13 @@ var PRPU_node_modules_bootstrap_icons_icons_code_slash = __webpack_require__(376
  */
 /* harmony default export */ function PRPU_src_libs_conf_panel(buttonEle){
     var form_templ = PRPU_src_ejs_ejs_pizyds_rain_conf_panel;
-    var form_html = PRPU_node_modules_ejs_ejs_default().render(form_templ, {
+    var form_html = () => PRPU_node_modules_ejs_ejs_default().render(form_templ, {
         BUILD_VERSION: build_info.version,
         BUILD_TIME: formatDate(new Date(build_info.timestamp)),
         ANS_ENABLED: ans_config.enabled,
         DRM_ENABLED: drm_config.enabled,
         FONT_SIZE: ans_config.fontSize,
-        HEADER_MESSAGE: judgeVersionUpdate() && textVersionUpdate[judgeVersionUpdate()] || "",
+        HEADER_MESSAGE: getHeaderMessage(),
         DEFAULT_SVG: adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_arrow_return_left, 12),
         HOUSE_SVG: adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_house, 12),
         GITHUB_SVG: adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_github, 12),
@@ -8312,8 +8345,9 @@ var PRPU_node_modules_bootstrap_icons_icons_code_slash = __webpack_require__(376
     });
     var container = external_jQuery_default()(".pizyds_rain")[0];
     external_jQuery_default()(container).off();
+
     // eslint-disable-next-line no-unused-vars
-    var popoverIns = new (PRPU_node_modules_bootstrap_js_dist_popover_default())(buttonEle, {
+    external_jQuery_default()(buttonEle).popover({
         title: PRPU_node_modules_ejs_ejs_default().render(PRPU_src_ejs_ejs_pizyds_rain_conf_title),
         container,
         content: form_html,
@@ -8329,6 +8363,7 @@ var PRPU_node_modules_bootstrap_icons_icons_code_slash = __webpack_require__(376
     external_jQuery_default()("html").on('click', function (e) {
         var popoverEle = external_jQuery_default()('.pizyds_rain_conf_popover')[0];
         if (
+          time_object.popover_can_hide < Date.now() && 
           popoverEle && 
           !external_jQuery_default()(buttonEle).is(e.target) && 
           external_jQuery_default()(buttonEle).has(e.target).length == 0 && 
@@ -8372,8 +8407,11 @@ var PRPU_node_modules_bootstrap_icons_icons_code_slash = __webpack_require__(376
         drm_config.enabled = this.checked;
     })
 
-    clearVersionUpdate() && external_jQuery_default()(buttonEle).trigger("click");
-
+    //更新提示
+    if (judgeVersionUpdate()){
+        refreshHeaderMessage(textVersionUpdate[judgeVersionUpdate()]);
+        clearVersionUpdate();
+    }
 }
 
 /**
@@ -8432,7 +8470,9 @@ function get_url_slides(el_dialog){
             return ImageData;
         }).catch(err => {
             console.error(err);
-            alert("雨课堂课件PDF下载工具：图像处理出错");
+            refreshProcessStatus(false);
+            refreshHeaderMessage(`图像处理出错（第${i+1}页：${url_slides[i]}）`, 'Warn');
+            throw err;
         });
     }
     return Promise.all(promiseList);
@@ -8524,9 +8564,9 @@ function randomIntFromInterval(min, max) {
  * @param img_list 图片列表
  * @param filename 保存的文件名
  * @param answer_list 答案列表
- * @return {void}
+ * @return {Promise}
  */
-/* harmony default export */ function PRPU_src_libs_pdf_process(img_list, filename, answer_list){
+/* harmony default export */ async function PRPU_src_libs_pdf_process(img_list, filename, answer_list){
     console.groupCollapsed("雨课堂课件PDF下载工具：生成PDF...");
     var doc = new external_jspdf_namespaceObject.jsPDF({
         orientation: "landscape",
@@ -8535,10 +8575,12 @@ function randomIntFromInterval(min, max) {
         hotfixes: ["px_scaling"]
     });
     injectXMP(doc, [img_list[0].width, img_list[0].height]);
-    addPPT(0, doc, img_list, answer_list);
-    for (let i = 1; i < img_list.length; i++){
-        doc.addPage([img_list[i].width, img_list[i].height], "landscape");
-        addPPT(i, doc, img_list, answer_list);
+
+    for (let i = 0; i < img_list.length; i++){
+        i > 0 && doc.addPage([img_list[i].width, img_list[i].height], "landscape");
+        await addPPT(i, doc, img_list, answer_list);
+        refreshProcessStatus(`生成PDF(${i+1}/${img_list.length})`);
+        await sleep(10);
     }
     console.groupEnd();
     doc.save(filename);
@@ -8551,9 +8593,9 @@ function randomIntFromInterval(min, max) {
  * @param {number} index
  * @param {jsPDF} doc jsPDF 对象
  * @param {Array} answer_list 答案列表
- * @return {void}
+ * @return {Promise}
  */
-function addPPT(index, doc, img_list, answer_list){
+async function addPPT(index, doc, img_list, answer_list){
     console.log(`雨课堂课件PDF下载工具：第 ${index+1} 页 - PPT`);
     doc.addImage({
         imageData: img_list[index].url,
@@ -8679,6 +8721,11 @@ async function render(index, { el_ppts, processStatus }){
         var dta = ctx2.getImageData(0, 0, c2.width, c2.height);
         dta.url = c2.toDataURL();
         return dta;
+    }).catch(err => {
+        console.error(err);
+        refreshProcessStatus(false);
+        refreshHeaderMessage(`HTML转高清Canvas出错（第${index+1}页）`, 'Warn');
+        throw err;
     });
 }
 
@@ -8764,11 +8811,17 @@ function get_answers(url_slides){
                     var ppt_name = document.getElementsByClassName("ppt_name")[0].innerText;
                     var filename = ppt_name + ".pdf";
                     var answer_list = ans_config.enabled ? get_answers(url_slides): [];
-                    PRPU_src_libs_pdf_process(img_list, filename, answer_list);
+                    await PRPU_src_libs_pdf_process(img_list, filename, answer_list).catch(err => {
+                        console.error(err);
+                        refreshProcessStatus(false);
+                        refreshHeaderMessage("PDF生成出错", 'Warn');
+                        throw err;
+                    });
                     refreshProcessStatus(false);
                 })
             } else{
-                alert("雨课堂课件PDF下载工具：没有提取到图片");
+                refreshProcessStatus(false);
+                refreshHeaderMessage("没有提取到图片", 'Warn');
             }
         }
     },{
@@ -8784,11 +8837,17 @@ function get_answers(url_slides){
                     var ppt_name = document.getElementsByClassName("ppt_name")[0].innerText;
                     var filename = ppt_name + ".pdf";
                     var answer_list = [];
-                    PRPU_src_libs_pdf_process(img_list, filename, answer_list);
+                    await PRPU_src_libs_pdf_process(img_list, filename, answer_list).catch(err => {
+                        console.error(err);
+                        refreshProcessStatus(false);
+                        refreshHeaderMessage("PDF生成出错", 'Warn');
+                        throw err;
+                    });
                     refreshProcessStatus(false);
                 })
             } else{
-                alert("雨课堂课件PDF下载工具：没有提取到图片");
+                refreshProcessStatus(false);
+                refreshHeaderMessage("没有提取到图片", 'Warn');
             }
         }
     }];
@@ -8833,6 +8892,8 @@ function button_download(el_dialog, url_type = 1){
             external_jQuery_default()("#pizyds_rain_download_button").off();
             external_jQuery_default()("#pizyds_rain_download_button").on("click", () => PRPU_src_libs_download_process(el_dialog, url_type));
             PRPU_src_libs_conf_panel(external_jQuery_default()("#pizyds_rain_config_button"));
+
+            if (url_type == 2) refreshHeaderMessage('“课件”类型不支持添加选择题答案', 'Info', false);
             console.log(`雨课堂课件PDF下载工具：按钮注入成功 - type ${url_type}`);
         } catch (err) {
             return false;

@@ -83,7 +83,7 @@ export var time_object = {
 }
 
 var update_info_list = {
-    '1.3.1': `优化了生成速度、格式兼容、报错信息`
+    '1.3.1': `优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug`
 }
 
 export var update_info = update_info_list[build_info.version] ? 

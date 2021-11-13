@@ -2,9 +2,9 @@
 **在雨课堂页面自动生成PDF版本课件提供下载**
 
 ## 注意 / Attention
-这次推送到 Greasy Fork 的代码进行了 webpack 打包，所有源代码都可以在 [Github](https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download) 上找到！
+这次推送到 Greasy Fork 的代码进行了 webpack 无压缩打包，所有源代码都可以在 [Github](https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download) 上找到！
 
-The code pushed to Greasy Fork this time is packaged by webpack. All the source code can be found on [Github](https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download)!
+The code pushed to Greasy Fork this time is packaged by webpack without compression. All the source code can be found on [Github](https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download)!
 
 ## 简介
 雨课堂虽然有原生的打印功能，但是存在设置页面、拉伸图像、打印PDF等各种麻烦。于是乎自己给雨课堂加了个按钮，该脚本能够自动生成课件的PDF版本，只需要点击一下~
@@ -26,6 +26,7 @@ The code pushed to Greasy Fork this time is packaged by webpack. All the source 
 - *1.2.0* 支持发布类型为“课件”（区别于“课堂”）类型的PPT的下载(Beta)
 - *1.2.2* 为了尊重版权与脚本的和平发展，PDF 中将默认加密注入 DRM 信息，详情参考[说明](https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/)
 - *1.3.0* 加入了漂亮的配置界面，支持改变答案字体，拥有非常给力的用户体验
+- *1.3.1* 优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug
 
 该脚本将前端技术最大化，分析当前页面的 DOM ，完全在本地浏览器内处理，不发送任何无关请求，所使用的外部库均开源且引用自公共 CDN 和 NPM，进行 webpack 压缩打包以求高效。
 
