@@ -1,6 +1,6 @@
 {
   "name": "rain-classroom-pdf-direct-download",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "在雨课堂页面自动生成PDF版本课件提供下载",
   "private": true,
   "scripts": {
@@ -9,7 +9,8 @@
     "watch": "webpack --watch --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js && npm run replace:projectRootPath",
     "build:stats": "webpack --config ./build/webpack.prod.js --json > ./build/stats.json",
-    "replace:projectRootPath": "replace-in-file --configFile=./build/replace-in-file.config.js"
+    "replace:projectRootPath": "replace-in-file --configFile=./build/replace-in-file.config.js",
+    "util:requires_hash": "node ./build/util_requires_hash.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,9 @@
   "homepage": "https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download#readme",
   "devDependencies": {
     "autoprefixer": "^10.2.6",
+    "axios": "^0.27.2",
     "css-loader": "^5.2.6",
+    "https-proxy-agent": "^5.0.1",
     "patch-package": "^6.4.7",
     "postcss": "^8.3.5",
     "postcss-loader": "^6.1.1",

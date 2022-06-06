@@ -11,10 +11,9 @@
 // @license      MIT
 // @match        https://*.yuketang.cn/*
 // @icon         https://www.yuketang.cn/static/images/favicon.ico
-// @require      https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js
-// @require      https://cdn.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js
-// @require      https://cdn.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js
-// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js<%= require %>
+<% at_requires.forEach((at_require) => { -%>
+// @require      <%= at_require.url %><% if (at_require.hash && at_require.hash.length > 0) { %>#<%= at_require.hash %><% } %>
+<% }); -%>
 // @grant        GM_getValue
 // @grant        GM_setValue
 // ==/UserScript==

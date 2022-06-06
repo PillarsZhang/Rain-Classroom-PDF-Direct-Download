@@ -1,0 +1,54 @@
+[
+    {
+        "name": "jspdf",
+        "prod": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jspdf@2.4.0/dist/jspdf.umd.min.js"
+        },
+        "dev": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jspdf@2.4.0/dist/jspdf.umd.js"
+        }
+    },
+    {
+        "name": "html2canvas",
+        "prod": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js"
+        },
+        "dev": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/html2canvas@0.5.0-beta4/dist/html2canvas.js"
+        }
+    },
+    {
+        "name": "hybrid-crypto-js",
+        "prod": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js"
+        },
+        "dev": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.js"
+        }
+    },
+    {
+        "name": "jquery",
+        "prod": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jquery@3.6.0/dist/jquery.min.js"
+        },
+        "dev": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jquery@3.6.0/dist/jquery.js"
+        }
+    }
+]
