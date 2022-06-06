@@ -1,0 +1,47 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "npm: watch",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "watch"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "npm: build",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "build"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "npm: util:requires_hash",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "util:requires_hash"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        }
+    ]
+}
