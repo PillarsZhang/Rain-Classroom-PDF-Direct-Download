@@ -2,7 +2,7 @@
 // @name         Rain Classroom PDF Direct Download
 // @name:zh-CN   雨课堂课件PDF下载工具
 // @namespace    https://www.pizyds.com/
-// @version      1.3.1
+// @version      1.3.2
 // @description  Automatic generation of direct download PDF on Rain Classroom
 // @description:zh-CN 在雨课堂页面自动生成PDF版本课件提供下载
 // @author       PillarsZhang
@@ -11,10 +11,10 @@
 // @license      MIT
 // @match        https://*.yuketang.cn/*
 // @icon         https://www.yuketang.cn/static/images/favicon.ico
-// @require      https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js
-// @require      https://cdn.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js
-// @require      https://cdn.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js
-// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
+// @require      https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jspdf@2.4.0/dist/jspdf.umd.min.js#sha256=e6b6bfd150b911d1e05904a7e03f86265c9c83bfa18e7082b27630aa6330fb92
+// @require      https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js#sha256=8cfff33600dd38b0ef1e01bf20fcab0c36b3adfedbf8fe8230c67f4b7119eb37
+// @require      https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js#sha256=7f27655864994ca27694567d0b83293fcdd6ec8bee858d59b0d74afab1b4dfe1
+// @require      https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jquery@3.6.0/dist/jquery.min.js#sha256=ff1523fb7389539c84c65aba19260648793bb4f5e29329d2ee8804bc37a3fe6e
 // @grant        GM_getValue
 // @grant        GM_setValue
 // ==/UserScript==
@@ -7975,8 +7975,8 @@ autoGMValue(env_config, "env_config");
 //编译信息
 var build_info = {
     name: "rain-classroom-pdf-direct-download",
-    version: "1.3.1",
-    timestamp: 1636822729351,
+    version: "1.3.2",
+    timestamp: 1654522363499,
 }
 
 //对自动添加客观题答案到PPT页面的配置
@@ -8048,7 +8048,8 @@ var time_object = {
 }
 
 var update_info_list = {
-    '1.3.1': `优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug`
+    '1.3.1': `优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug`,
+    '1.3.2': `外部库依赖改为专用百度智能云CDN，增加校验参数与开发时校验脚本`
 }
 
 var update_info = update_info_list[build_info.version] ? 

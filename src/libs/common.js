@@ -83,7 +83,8 @@ export var time_object = {
 }
 
 var update_info_list = {
-    '1.3.1': `优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug`
+    '1.3.1': `优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug`,
+    '1.3.2': `外部库依赖改为专用百度智能云CDN，增加校验参数与开发时校验脚本`
 }
 
 export var update_info = update_info_list[build_info.version] ? 
