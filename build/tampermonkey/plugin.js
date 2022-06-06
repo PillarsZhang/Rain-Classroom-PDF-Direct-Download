@@ -9,8 +9,8 @@ var package_json = fs.readFileSync(path.resolve(__dirname, '../../package.json')
 var name = JSON.parse(package_json).name;
 var version = JSON.parse(package_json).version;
 
-const require_sources = ["jsdelivr", "jsdelivr_fastly", "bcecdn_pizyds"]
-const require_source = require_sources[2]
+const require_sources = ["jsdelivr", "jsdelivr_fastly", "bcecdn_pizyds", "baomitu"]
+const require_source = require_sources[3]
 
 function getAtRequires(source="jsdelivr", mode="dev") {
     let requires = JSON.parse(fs.readFileSync(path.resolve(__dirname, './requires_hash.json'), 'utf-8'));

@@ -5,43 +5,26 @@
             "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.js",
             "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.js",
             "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jspdf@2.4.0/dist/jspdf.umd.js",
+            "baomitu": "https://lib.baomitu.com/jspdf/2.4.0/jspdf.umd.js",
             "hash": "sha256=bbc8fde0ce8180d701fb38c0299682e840603e70e38b8343f77e09d92dd4e4c4"
         },
         "prod": {
             "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
             "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
             "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
+            "baomitu": "https://lib.baomitu.com/jspdf/2.4.0/jspdf.umd.min.js",
             "hash": "sha256=e6b6bfd150b911d1e05904a7e03f86265c9c83bfa18e7082b27630aa6330fb92"
         }
     },
     {
         "name": "html2canvas",
         "dev": {
-            "jsdelivr": "https://cdn.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.js",
-            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.js",
-            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/html2canvas@0.5.0-beta4/dist/html2canvas.js",
-            "hash": "sha256=509b0853b43083ac131198c2c7a2fa6ecb1c19eccdd83d345ea97ec8fabc39a4"
+            "baomitu": "https://lib.baomitu.com/html2canvas/0.5.0-beta4/html2canvas.js",
+            "hash": "sha256=1338d93cfeec38243eba017f53cc76547dcf12f8373458e2b3f769c2880ddd3d"
         },
         "prod": {
-            "jsdelivr": "https://cdn.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js",
-            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js",
-            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/html2canvas@0.5.0-beta4/dist/html2canvas.min.js",
-            "hash": "sha256=8cfff33600dd38b0ef1e01bf20fcab0c36b3adfedbf8fe8230c67f4b7119eb37"
-        }
-    },
-    {
-        "name": "hybrid-crypto-js",
-        "dev": {
-            "jsdelivr": "https://cdn.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.js",
-            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.js",
-            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.js",
-            "hash": "sha256=8c3e200f0f7ce3ce6f8ff85d995ebd5c54edbb04ecd8627b1f7c114459169a2a"
-        },
-        "prod": {
-            "jsdelivr": "https://cdn.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js",
-            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js",
-            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/hybrid-crypto-js@0.2.4/web/hybrid-crypto.min.js",
-            "hash": "sha256=7f27655864994ca27694567d0b83293fcdd6ec8bee858d59b0d74afab1b4dfe1"
+            "baomitu": "https://lib.baomitu.com/html2canvas/0.5.0-beta4/html2canvas.min.js",
+            "hash": "sha256=c3aff5074bb0929477b97d18530de4db3cc79eaeb10cd7556472c8773f3157a2"
         }
     },
     {
@@ -50,12 +33,14 @@
             "jsdelivr": "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js",
             "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js",
             "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jquery@3.6.0/dist/jquery.js",
+            "baomitu": "https://lib.baomitu.com/jquery/3.6.0/jquery.js",
             "hash": "sha256=1fe2bb5390a75e5d61e72c107cab528fc3c29a837d69aab7d200e1dbb5dcd239"
         },
         "prod": {
             "jsdelivr": "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js",
             "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js",
             "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jquery@3.6.0/dist/jquery.min.js",
+            "baomitu": "https://lib.baomitu.com/jquery/3.6.0/jquery.min.js",
             "hash": "sha256=ff1523fb7389539c84c65aba19260648793bb4f5e29329d2ee8804bc37a3fe6e"
         }
     }

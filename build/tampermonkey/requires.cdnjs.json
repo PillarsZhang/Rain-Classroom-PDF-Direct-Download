@@ -1,0 +1,47 @@
+[
+    {
+        "name": "jspdf",
+        "prod": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
+            "baomitu": "https://lib.baomitu.com/jspdf/2.4.0/jspdf.umd.min.js"
+        },
+        "dev": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jspdf@2.4.0/dist/jspdf.umd.js",
+            "baomitu": "https://lib.baomitu.com/jspdf/2.4.0/jspdf.umd.js"
+        }
+    },
+    {
+        "name": "html2canvas",
+        "prod": {
+            "jsdelivr": null,
+            "jsdelivr_fastly": null,
+            "bcecdn_pizyds": null,
+            "baomitu": "https://lib.baomitu.com/html2canvas/0.5.0-beta4/html2canvas.min.js"
+        },
+        "dev": {
+            "jsdelivr": null,
+            "jsdelivr_fastly": null,
+            "bcecdn_pizyds": null,
+            "baomitu": "https://lib.baomitu.com/html2canvas/0.5.0-beta4/html2canvas.js"
+        }
+    },
+    {
+        "name": "jquery",
+        "prod": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jquery@3.6.0/dist/jquery.min.js",
+            "baomitu": "https://lib.baomitu.com/jquery/3.6.0/jquery.min.js"
+        },
+        "dev": {
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js",
+            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js",
+            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jquery@3.6.0/dist/jquery.js",
+            "baomitu": "https://lib.baomitu.com/jquery/3.6.0/jquery.js"
+        }
+    }
+]

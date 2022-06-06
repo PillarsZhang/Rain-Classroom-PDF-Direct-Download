@@ -1,7 +1,8 @@
 import publicKey from '../key/rsa_2048_pub.pem';
 import { build_info } from './common';
 import { v4 as uuidv4 } from 'uuid';
-import hybridCrypto from 'hybrid-crypto-js/web/hybrid-crypto.js';
+// import hybridCrypto from 'hybrid-crypto-js/web/hybrid-crypto.js';
+import { Crypt as hybridCrypto } from 'hybrid-crypto-js';
 
 //小众的库，CDN上对WEB的模块引出方式和NODE有一点不一样
 var crypt = new hybridCrypto({ aesKeySize: 128 });

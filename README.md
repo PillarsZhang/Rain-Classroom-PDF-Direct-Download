@@ -27,11 +27,11 @@ The code pushed to Greasy Fork this time is packaged by webpack without compress
 - *1.2.2* 为了尊重版权与脚本的和平发展，PDF 中将默认加密注入 DRM 信息，详情参考[说明](https://www.pizyds.com/rain-classroom-pdf-direct-download-pizyds-rain-drm/)
 - *1.3.0* 加入了漂亮的配置界面，支持改变答案字体，拥有非常给力的用户体验
 - *1.3.1* 优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug
-- *1.3.2* 外部库依赖改为专用百度智能云 CDN ，增加校验参数与开发时的校验比对脚本
+- *1.3.2* 外部库依赖改为~~专用百度智能云 CDN~~ 国内的 [75CDN](https://cdn.baomitu.com/)，增加校验参数与开发时的校验比对脚本
 
-该脚本将前端技术最大化，分析当前页面的 DOM ，完全在本地浏览器内处理，不发送任何无关请求，所使用的外部库均开源~~且引用自公共 CDN 和 NPM~~[^1][^2]，进行 webpack 压缩打包以求高效。
+该脚本将前端技术最大化，分析当前页面的 DOM ，完全在本地浏览器内处理，不发送任何无关请求，所使用的外部库均开源且引用自公共 CDN ~~和 NPM~~[^1][^2]，进行 webpack 压缩打包以求高效。
 
-[^1]: 因为 [jsDelivr](https://cdn.jsdelivr.net/) 在中国大陆已经完全被墙了，国内也没有完全镜像 NPM 的公共 CDN 存在（因为 [hybrid-crypto-js](https://github.com/juhoen/hybrid-crypto-js) 不在 [cdnjs](https://cdnjs.com/) 的列表里，所以其它前端库也不够用），权衡之后还是使用专用的 BOS、CDN 服务存放依赖库，保障脚本的顺利安装。
+[^1]: [jsDelivr](https://cdn.jsdelivr.net/) 在中国大陆已经完全被墙了，国内也没有完全镜像 NPM 的公共 CDN 存在；一开始已经搭建了专用的CDN，但在发布前考虑到 GreasyFork 的[外部代码规范](https://greasyfork.org/zh-CN/help/external-scripts)，显然我们自己的 CDN 域名不在白名单内，因此我只能回落到 cdnjs 系列的国内 CDN 如 [75CDN](https://cdn.baomitu.com/)，将不在 cdnjs 中的 [hybrid-crypto-js](https://github.com/juhoen/hybrid-crypto-js) 嵌入脚本。
 
 [^2]: 为了弥补安全上的可信度，这次更新同时增加了对外部库的 SHA256 校验：一是 Tampermonkey 在 @require 阶段的校验；二是开发阶段对不同 CDN 来源各个外部库的[校验比对](./build/tampermonkey/requires_hash.json)，保证专用 CDN 资源与公共的一致性。
 
